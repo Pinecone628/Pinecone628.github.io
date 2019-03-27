@@ -89,7 +89,9 @@
 <meta property="og:locale" content="zh_Hans">
 <meta property="og:image" content="http://yoursite.com/2019/03/26/感知机-Perceptron/plot1.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/26/感知机-Perceptron/plot2.png">
-<meta property="og:updated_time" content="2019-03-27T02:51:09.490Z">
+<meta property="og:image" content="http://yoursite.com/2019/03/26/感知机-Perceptron/plot3.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/26/感知机-Perceptron/plot4.png">
+<meta property="og:updated_time" content="2019-03-27T04:02:13.005Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="感知机-Perceptron">
 <meta name="twitter:description" content="感知机的直观感受感知机是机器学习中的最基本也是最简单的一个算法。下图就是一个例子。  例如，我们有一个二维数据，横轴为$X_1$, 纵轴为$X_2$。图中有黄蓝红三条直线，都可以将两簇数据完美划分。其实，这三条直线就是感知机的分割线。如果数据是n维的，那就是分离超平面了。 并且我们需要注意到，感知机是没有一个确定解的。因为我们的目标只是将两个数据簇分开。如果想要确定一个唯一的超平面，那需要加限制条">
@@ -322,7 +324,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  871
+                  1.1k
                 </span>
               
 
@@ -338,7 +340,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  3
+                  4
                 </span>
               
             </div>
@@ -391,6 +393,18 @@ Loss(w, b)= -\sum_{i\in M}y_i(<w,x_i>+b)</script><p>现在，考虑如何优化�
 w\leftarrow w+\eta y_ix_i\\
 b\leftarrow b+\eta y_i</script><p>最后进行迭代直到损失函数为0。</p>
 <p><img src="/2019/03/26/感知机-Perceptron/plot2.png" alt="plot1"></p>
+<h2 id="感知机的对偶形式"><a href="#感知机的对偶形式" class="headerlink" title="感知机的对偶形式"></a>感知机的对偶形式</h2><p>对偶形式的思想就是用<script type="math/tex">x_i和y_i​</script>的线性组合来表示<script type="math/tex">w和b​</script>。考虑在初始化参数的时候，将<script type="math/tex">w和b​</script>设为0，由之前的迭代算法可知，</p>
+<script type="math/tex; mode=display">
+w\leftarrow w+\eta y_ix_i\\
+b\leftarrow b+\eta y_i</script><p>设总共修改了<script type="math/tex">n​</script>次参数，对于样本点<script type="math/tex">(x_i, y_i)​</script>，<script type="math/tex">w和b​</script>的增量分别是<script type="math/tex">\alpha_iy_i x_i和\alpha_iy_i​</script>, 其中<script type="math/tex">\alpha_i=n_i\eta​</script>。</p>
+<script type="math/tex; mode=display">
+w=\sum_{i=1}^n\alpha_iy_ix_i\\
+b=\sum_{i=1}^n\alpha_iy_i</script><p>如果我们假定<script type="math/tex">\eta=0​</script>, 则<script type="math/tex">\alpha_i=n_i​</script>，即<script type="math/tex">\alpha​</script>表示第<script type="math/tex">i​</script>个实例点由于误分总共迭代更新的次数。</p>
+<p>从中，我们可以得出，如果某个实例点更新的次数越多，它里超平面的距离也就越近，也就越难正确分类，它对最后确定的超平面的影响也就越大。</p>
+<script type="math/tex; mode=display">
+f(x)=sign(\sum_{i=1}^n\alpha_iy_i<x_j, x>+b)</script><p><img src="/2019/03/26/感知机-Perceptron/plot3.png" alt></p>
+<p><img src="/2019/03/26/感知机-Perceptron/plot4.png" alt></p>
+<p>其中，<script type="math/tex">\alpha_i \leftarrow \alpha_i+\eta</script>, 加<script type="math/tex">\eta</script>的原因是因为<script type="math/tex">\alpha_i=n_i\eta</script>。误分一次，<script type="math/tex">\alpha_i</script>增加一个<script type="math/tex">\eta</script>。</p>
 <h2 id="Python实现"><a href="#Python实现" class="headerlink" title="Python实现"></a>Python实现</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Perceptron</span><span class="params">(object)</span>:</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, eta=<span class="number">0.05</span>, n_iter=<span class="number">50</span>, random_state=<span class="number">1</span>)</span>:</span></span><br><span class="line">        self.eta = eta</span><br><span class="line">        self.n_iter = n_iter</span><br><span class="line">        self.random_state = random_state</span><br><span class="line">        self.error = <span class="number">0</span></span><br><span class="line">        </span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fit</span><span class="params">(self, X, y)</span>:</span></span><br><span class="line">        rgen = np.random.RandomState(self.random_state)</span><br><span class="line">        self.w = rgen.normal(loc=<span class="number">0</span>, scale=<span class="number">0.1</span>, size=(X.shape[<span class="number">1</span>]+<span class="number">1</span>))</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> range(self.n_iter):</span><br><span class="line">            <span class="keyword">for</span> xi, yi <span class="keyword">in</span> zip(X, y):</span><br><span class="line">                pred = np.where(np.dot(xi, self.w[<span class="number">1</span>:]) + self.w[<span class="number">0</span>] &gt;=<span class="number">0</span>, <span class="number">1</span>, <span class="number">-1</span>)</span><br><span class="line">                <span class="keyword">if</span> yi != pred:</span><br><span class="line">                    self.w[<span class="number">1</span>:] += self.eta*yi*xi</span><br><span class="line">                    self.w[<span class="number">0</span>] += self.eta*yi</span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">predict</span><span class="params">(self, X, y)</span>:</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(X.shape[<span class="number">0</span>]):</span><br><span class="line">            xi = X[i, ]</span><br><span class="line">            yi = y[i]</span><br><span class="line">            result = np.where(np.dot(xi, self.w[<span class="number">1</span>:]) + self.w[<span class="number">0</span>] &gt;=<span class="number">0</span>, <span class="number">1</span>, <span class="number">-1</span>)</span><br><span class="line">            <span class="keyword">if</span> result != yi:</span><br><span class="line">                self.error += <span class="number">1</span>/X.shape[<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    df = pd.read_csv(<span class="string">'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'</span>, header=<span class="literal">None</span>)</span><br><span class="line">    df.tail()</span><br><span class="line">    y = df.iloc[<span class="number">0</span>:<span class="number">150</span>, <span class="number">4</span>].values</span><br><span class="line">    y = np.where(y == <span class="string">'Iris-setosa'</span>, <span class="number">-1</span>, <span class="number">1</span>)</span><br><span class="line">    y_train = y[<span class="number">0</span>:<span class="number">100</span>]</span><br><span class="line">    y_test = y[<span class="number">100</span>:]</span><br><span class="line">    X = df.iloc[<span class="number">0</span>:<span class="number">150</span>, [<span class="number">0</span>, <span class="number">2</span>]].values</span><br><span class="line">    X_train = X[<span class="number">0</span>:<span class="number">100</span>, ]</span><br><span class="line">    X_test = X[<span class="number">100</span>:, ]</span><br><span class="line">    ppn = Perceptron(eta=<span class="number">0.1</span>, n_iter=<span class="number">50</span>)</span><br><span class="line">    ppn.fit(X_train, y_train)</span><br><span class="line">    m =ppn.predict(X_test, y_test)</span><br><span class="line">    n = ppn.fit(X_train, y_train)</span><br><span class="line">    print(n.error)</span><br></pre></td></tr></table></figure>
 
       
@@ -517,7 +531,7 @@ b\leftarrow b+\eta y_i</script><p>最后进行迭代直到损失函数为0。</p
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -579,7 +593,7 @@ b\leftarrow b+\eta y_i</script><p>最后进行迭代直到损失函数为0。</p
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#感知机的直观感受"><span class="nav-number">1.</span> <span class="nav-text">感知机的直观感受</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#感知机的数学视角"><span class="nav-number">2.</span> <span class="nav-text">感知机的数学视角</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python实现"><span class="nav-number">3.</span> <span class="nav-text">Python实现</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#感知机的直观感受"><span class="nav-number">1.</span> <span class="nav-text">感知机的直观感受</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#感知机的数学视角"><span class="nav-number">2.</span> <span class="nav-text">感知机的数学视角</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#感知机的对偶形式"><span class="nav-number">3.</span> <span class="nav-text">感知机的对偶形式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python实现"><span class="nav-number">4.</span> <span class="nav-text">Python实现</span></a></li></ol></div>
             
 
           </div>

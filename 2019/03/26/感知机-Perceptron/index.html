@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="感知机的直观感受感知机是机器学习中的最基本也是最简单的一个算法。下图就是一个例子。  例如，我们有一个二维数据，横轴为$X_1$, 纵轴为$X_2$。图中有黄蓝红三条直线，都可以将两簇数据完美划分。其实，这三条直线就是感知机的分割线。如果数据是n维的，那就是分离超平面了。 那么感知机能不能找到一条最优的线(超平面)来划分新的数据点呢？答案是否定的，感知机无法找到一个最优的面。 感知机的数学视角对于">
+<meta name="description" content="感知机的直观感受感知机是机器学习中的最基本也是最简单的一个算法。下图就是一个例子。  例如，我们有一个二维数据，横轴为$X_1$, 纵轴为$X_2$。图中有黄蓝红三条直线，都可以将两簇数据完美划分。其实，这三条直线就是感知机的分割线。如果数据是n维的，那就是分离超平面了。 并且我们需要注意到，感知机是没有一个确定解的。因为我们的目标只是将两个数据簇分开。如果想要确定一个唯一的超平面，那需要加限制条">
 <meta name="keywords" content="Machine Learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="感知机-Perceptron">
 <meta property="og:url" content="http://yoursite.com/2019/03/26/感知机-Perceptron/index.html">
 <meta property="og:site_name" content="Do it">
-<meta property="og:description" content="感知机的直观感受感知机是机器学习中的最基本也是最简单的一个算法。下图就是一个例子。  例如，我们有一个二维数据，横轴为$X_1$, 纵轴为$X_2$。图中有黄蓝红三条直线，都可以将两簇数据完美划分。其实，这三条直线就是感知机的分割线。如果数据是n维的，那就是分离超平面了。 那么感知机能不能找到一条最优的线(超平面)来划分新的数据点呢？答案是否定的，感知机无法找到一个最优的面。 感知机的数学视角对于">
+<meta property="og:description" content="感知机的直观感受感知机是机器学习中的最基本也是最简单的一个算法。下图就是一个例子。  例如，我们有一个二维数据，横轴为$X_1$, 纵轴为$X_2$。图中有黄蓝红三条直线，都可以将两簇数据完美划分。其实，这三条直线就是感知机的分割线。如果数据是n维的，那就是分离超平面了。 并且我们需要注意到，感知机是没有一个确定解的。因为我们的目标只是将两个数据簇分开。如果想要确定一个唯一的超平面，那需要加限制条">
 <meta property="og:locale" content="zh_Hans">
 <meta property="og:image" content="http://yoursite.com/2019/03/26/感知机-Perceptron/plot1.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/26/感知机-Perceptron/plot2.png">
-<meta property="og:updated_time" content="2019-03-27T02:08:40.083Z">
+<meta property="og:updated_time" content="2019-03-27T02:51:09.490Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="感知机-Perceptron">
-<meta name="twitter:description" content="感知机的直观感受感知机是机器学习中的最基本也是最简单的一个算法。下图就是一个例子。  例如，我们有一个二维数据，横轴为$X_1$, 纵轴为$X_2$。图中有黄蓝红三条直线，都可以将两簇数据完美划分。其实，这三条直线就是感知机的分割线。如果数据是n维的，那就是分离超平面了。 那么感知机能不能找到一条最优的线(超平面)来划分新的数据点呢？答案是否定的，感知机无法找到一个最优的面。 感知机的数学视角对于">
+<meta name="twitter:description" content="感知机的直观感受感知机是机器学习中的最基本也是最简单的一个算法。下图就是一个例子。  例如，我们有一个二维数据，横轴为$X_1$, 纵轴为$X_2$。图中有黄蓝红三条直线，都可以将两簇数据完美划分。其实，这三条直线就是感知机的分割线。如果数据是n维的，那就是分离超平面了。 并且我们需要注意到，感知机是没有一个确定解的。因为我们的目标只是将两个数据簇分开。如果想要确定一个唯一的超平面，那需要加限制条">
 <meta name="twitter:image" content="http://yoursite.com/2019/03/26/感知机-Perceptron/plot1.png">
 
 
@@ -322,7 +322,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  851
+                  871
                 </span>
               
 
@@ -362,7 +362,7 @@
         <h2 id="感知机的直观感受"><a href="#感知机的直观感受" class="headerlink" title="感知机的直观感受"></a>感知机的直观感受</h2><p>感知机是机器学习中的最基本也是最简单的一个算法。下图就是一个例子。</p>
 <p><img src="/2019/03/26/感知机-Perceptron/plot1.png" alt="plot1"></p>
 <p>例如，我们有一个二维数据，横轴为$X_1$, 纵轴为$X_2$。图中有黄蓝红三条直线，都可以将两簇数据完美划分。其实，这三条直线就是感知机的分割线。如果数据是n维的，那就是分离超平面了。</p>
-<p>那么感知机能不能找到一条最优的线(超平面)来划分新的数据点呢？答案是否定的，感知机无法找到一个最优的面。</p>
+<p>并且我们需要注意到，感知机是没有一个确定解的。因为我们的目标只是将两个数据簇分开。如果想要确定一个唯一的超平面，那需要加限制条件，这将是SVM的内容。</p>
 <h2 id="感知机的数学视角"><a href="#感知机的数学视角" class="headerlink" title="感知机的数学视角"></a>感知机的数学视角</h2><p>对于这样一个模型，我们怎么来找到一个超平面呢？</p>
 <p>首先，如前面所说，感知机是依靠超平面来划分数据集的。数学上，我们定义超平面为<script type="math/tex"><w, x>+b​</script> ，其中$w​$为超平面的法向量，$b​$为超平面的偏置。同时，由于我们需要通过这个超平面来划分数据，而我们的数据的标志<script type="math/tex">y\in\{-1, +1\}​</script>, 因此我们定义函数为<script type="math/tex">f(x)=sign(<w, x>+b)​</script>，其中</p>
 <script type="math/tex; mode=display">
@@ -431,6 +431,10 @@ b\leftarrow b+\eta y_i</script><p>最后进行迭代直到损失函数为0。</p
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/26/Leetcode-1-Two-Sum/" rel="prev" title="Leetcode 1. Two Sum">
+                Leetcode 1. Two Sum <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -513,7 +517,7 @@ b\leftarrow b+\eta y_i</script><p>最后进行迭代直到损失函数为0。</p
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -526,7 +530,7 @@ b\leftarrow b+\eta y_i</script><p>最后进行迭代直到损失函数为0。</p
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

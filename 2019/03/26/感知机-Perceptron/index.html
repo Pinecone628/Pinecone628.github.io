@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Machine Learning,">
 
 
 
@@ -79,13 +79,21 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Do it">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="感知机的直观感受感知机是机器学习中的最基本也是最简单的一个算法。下图就是一个例子。  例如，我们有一个二维数据，横轴为$X_1$, 纵轴为$X_2$。图中有黄蓝红三条直线，都可以将两簇数据完美划分。其实，这三条直线就是感知机的分割线。如果数据是n维的，那就是分离超平面了。 那么感知机能不能找到一条最优的线(超平面)来划分新的数据点呢？答案是否定的，感知机无法找到一个最优的面。 感知机的数学视角对于">
+<meta name="keywords" content="Machine Learning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="感知机-Perceptron">
+<meta property="og:url" content="http://yoursite.com/2019/03/26/感知机-Perceptron/index.html">
 <meta property="og:site_name" content="Do it">
+<meta property="og:description" content="感知机的直观感受感知机是机器学习中的最基本也是最简单的一个算法。下图就是一个例子。  例如，我们有一个二维数据，横轴为$X_1$, 纵轴为$X_2$。图中有黄蓝红三条直线，都可以将两簇数据完美划分。其实，这三条直线就是感知机的分割线。如果数据是n维的，那就是分离超平面了。 那么感知机能不能找到一条最优的线(超平面)来划分新的数据点呢？答案是否定的，感知机无法找到一个最优的面。 感知机的数学视角对于">
 <meta property="og:locale" content="zh_Hans">
+<meta property="og:image" content="http://yoursite.com/2019/03/26/感知机-Perceptron/plot1.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/26/感知机-Perceptron/plot2.png">
+<meta property="og:updated_time" content="2019-03-27T02:04:08.802Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Do it">
+<meta name="twitter:title" content="感知机-Perceptron">
+<meta name="twitter:description" content="感知机的直观感受感知机是机器学习中的最基本也是最简单的一个算法。下图就是一个例子。  例如，我们有一个二维数据，横轴为$X_1$, 纵轴为$X_2$。图中有黄蓝红三条直线，都可以将两簇数据完美划分。其实，这三条直线就是感知机的分割线。如果数据是n维的，那就是分离超平面了。 那么感知机能不能找到一条最优的线(超平面)来划分新的数据点呢？答案是否定的，感知机无法找到一个最优的面。 感知机的数学视角对于">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/26/感知机-Perceptron/plot1.png">
 
 
 
@@ -115,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/26/感知机-Perceptron/">
 
 
 
 
 
-  <title>Do it</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>感知机-Perceptron | Do it</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -140,8 +148,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left 
-  page-home">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -224,9 +231,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -256,9 +263,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/26/感知机-Perceptron/" itemprop="url">感知机-Perceptron</a></h1>
+          <h1 class="post-title" itemprop="name headline">感知机-Perceptron</h1>
         
 
         <div class="post-meta">
@@ -299,6 +304,11 @@
           
           
 
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
           
 
           
@@ -349,9 +359,7 @@
       
 
       
-        
-          
-            <h2 id="感知机的直观感受"><a href="#感知机的直观感受" class="headerlink" title="感知机的直观感受"></a>感知机的直观感受</h2><p>感知机是机器学习中的最基本也是最简单的一个算法。下图就是一个例子。</p>
+        <h2 id="感知机的直观感受"><a href="#感知机的直观感受" class="headerlink" title="感知机的直观感受"></a>感知机的直观感受</h2><p>感知机是机器学习中的最基本也是最简单的一个算法。下图就是一个例子。</p>
 <p><img src="/2019/03/26/感知机-Perceptron/plot1.png" alt="plot1"></p>
 <p>例如，我们有一个二维数据，横轴为$X_1$, 纵轴为$X_2$。图中有黄蓝红三条直线，都可以将两簇数据完美划分。其实，这三条直线就是感知机的分割线。如果数据是n维的，那就是分离超平面了。</p>
 <p>那么感知机能不能找到一条最优的线(超平面)来划分新的数据点呢？答案是否定的，感知机无法找到一个最优的面。</p>
@@ -385,8 +393,6 @@ b\leftarrow b+\eta y_i</script><p>最后进行迭代直到损失函数为0。</p
 <p><img src="/2019/03/26/感知机-Perceptron/plot2.png" alt="plot1"></p>
 <h2 id="Python实现"><a href="#Python实现" class="headerlink" title="Python实现"></a>Python实现</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Perceptron</span><span class="params">(object)</span>:</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, eta=<span class="number">0.05</span>, n_iter=<span class="number">50</span>, random_state=<span class="number">1</span>)</span>:</span></span><br><span class="line">        self.eta = eta</span><br><span class="line">        self.n_iter = n_iter</span><br><span class="line">        self.random_state = random_state</span><br><span class="line">        self.error = <span class="number">0</span></span><br><span class="line">        </span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fit</span><span class="params">(self, X, y)</span>:</span></span><br><span class="line">        rgen = np.random.RandomState(self.random_state)</span><br><span class="line">        self.w = rgen.normal(loc=<span class="number">0</span>, scale=<span class="number">0.1</span>, size=(X.shape[<span class="number">1</span>]+<span class="number">1</span>))</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> range(self.n_iter):</span><br><span class="line">            <span class="keyword">for</span> xi, yi <span class="keyword">in</span> zip(X, y):</span><br><span class="line">                pred = np.where(np.dot(xi, self.w[<span class="number">1</span>:]) + self.w[<span class="number">0</span>] &gt;=<span class="number">0</span>, <span class="number">1</span>, <span class="number">-1</span>)</span><br><span class="line">                <span class="keyword">if</span> yi != pred:</span><br><span class="line">                    self.w[<span class="number">1</span>:] += self.eta*yi*xi</span><br><span class="line">                    self.w[<span class="number">0</span>] += self.eta*yi</span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">predict</span><span class="params">(self, X, y)</span>:</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(X.shape[<span class="number">0</span>]):</span><br><span class="line">            xi = X[i, ]</span><br><span class="line">            yi = y[i]</span><br><span class="line">            result = np.where(np.dot(xi, self.w[<span class="number">1</span>:]) + self.w[<span class="number">0</span>] &gt;=<span class="number">0</span>, <span class="number">1</span>, <span class="number">-1</span>)</span><br><span class="line">            <span class="keyword">if</span> result != yi:</span><br><span class="line">                self.error += <span class="number">1</span>/X.shape[<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    df = pd.read_csv(<span class="string">'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'</span>, header=<span class="literal">None</span>)</span><br><span class="line">    df.tail()</span><br><span class="line">    y = df.iloc[<span class="number">0</span>:<span class="number">150</span>, <span class="number">4</span>].values</span><br><span class="line">    y = np.where(y == <span class="string">'Iris-setosa'</span>, <span class="number">-1</span>, <span class="number">1</span>)</span><br><span class="line">    y_train = y[<span class="number">0</span>:<span class="number">100</span>]</span><br><span class="line">    y_test = y[<span class="number">100</span>:]</span><br><span class="line">    X = df.iloc[<span class="number">0</span>:<span class="number">150</span>, [<span class="number">0</span>, <span class="number">2</span>]].values</span><br><span class="line">    X_train = X[<span class="number">0</span>:<span class="number">100</span>, ]</span><br><span class="line">    X_test = X[<span class="number">100</span>:, ]</span><br><span class="line">    ppn = Perceptron(eta=<span class="number">0.1</span>, n_iter=<span class="number">50</span>)</span><br><span class="line">    ppn.fit(X_train, y_train)</span><br><span class="line">    m =ppn.predict(X_test, y_test)</span><br><span class="line">    n = ppn.fit(X_train, y_train)</span><br><span class="line">    print(n.error)</span><br></pre></td></tr></table></figure>
 
-          
-        
       
     </div>
     
@@ -401,347 +407,36 @@ b\leftarrow b+\eta y_i</script><p>最后进行迭代直到损失函数为0。</p
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/Hi/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JW">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/HH.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Do it">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/25/Hi/" itemprop="url">Hi</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-25T20:06:40-05:00">
-                2019-03-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/Machine-Learning/" rel="tag"># Machine Learning</a>
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/03/25/Hi/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/25/Hi/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  18
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>2019, 加油！！</p>
-<p>然后和我家小宝贝一直一直走下去！！</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-
-    
       
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JW">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/HH.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Do it">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/25/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-25T14:54:15-05:00">
-                2019-03-25
-              </time>
+              <a href="/2019/03/25/Hi/" rel="next" title="Hi">
+                <i class="fa fa-chevron-left"></i> Hi
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/03/25/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/25/hello-world/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  73
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -752,10 +447,11 @@ b\leftarrow b+\eta y_i</script><p>最后进行迭代直到损失函数为0。</p
 
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -763,6 +459,13 @@ b\leftarrow b+\eta y_i</script><p>最后进行迭代直到损失函数为0。</p
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -783,8 +486,17 @@ b\leftarrow b+\eta y_i</script><p>最后进行迭代直到损失函数为0。</p
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -853,6 +565,22 @@ b\leftarrow b+\eta y_i</script><p>最后进行迭代直到损失函数为0。</p
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#感知机的直观感受"><span class="nav-number">1.</span> <span class="nav-text">感知机的直观感受</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#感知机的数学视角"><span class="nav-number">2.</span> <span class="nav-text">感知机的数学视角</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python实现"><span class="nav-number">3.</span> <span class="nav-text">Python实现</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1015,6 +743,10 @@ b\leftarrow b+\eta y_i</script><p>最后进行迭代直到损失函数为0。</p
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

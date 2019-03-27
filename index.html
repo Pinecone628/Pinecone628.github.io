@@ -312,7 +312,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  854
+                  851
                 </span>
               
 
@@ -356,7 +356,7 @@
 <p>例如，我们有一个二维数据，横轴为$X_1$, 纵轴为$X_2$。图中有黄蓝红三条直线，都可以将两簇数据完美划分。其实，这三条直线就是感知机的分割线。如果数据是n维的，那就是分离超平面了。</p>
 <p>那么感知机能不能找到一条最优的线(超平面)来划分新的数据点呢？答案是否定的，感知机无法找到一个最优的面。</p>
 <h2 id="感知机的数学视角"><a href="#感知机的数学视角" class="headerlink" title="感知机的数学视角"></a>感知机的数学视角</h2><p>对于这样一个模型，我们怎么来找到一个超平面呢？</p>
-<p>首先，如前面所说，感知机是依靠超平面来划分数据集的。数学上，我们定义超平面为$<w, x>+b$ ，其中$w$为超平面的法向量，$b$为超平面的偏置。同时，由于我们需要通过这个超平面来划分数据，而我们的数据的标志$y\in\{-1, +1\}$, 因此我们定义函数为$f(x)=sign(<w, x>+b)$，其中</w,></w,></p>
+<p>首先，如前面所说，感知机是依靠超平面来划分数据集的。数学上，我们定义超平面为<script type="math/tex"><w, x>+b​</script> ，其中$w​$为超平面的法向量，$b​$为超平面的偏置。同时，由于我们需要通过这个超平面来划分数据，而我们的数据的标志<script type="math/tex">y\in\{-1, +1\}​</script>, 因此我们定义函数为<script type="math/tex">f(x)=sign(<w, x>+b)​</script>，其中</p>
 <script type="math/tex; mode=display">
 \begin{align*}
 sign(<w, x>+b)&=\left\{
@@ -367,18 +367,18 @@ sign(<w, x>+b)&=\left\{
 \right.
 \end{align*}</script><p>现在，我们考虑如何来确定损失函数。我们的目标是将数据点正确的划分，因此我们可以考虑数据点到超平面的距离来度量。距离公式为</p>
 <script type="math/tex; mode=display">
-\frac{|<w,x_i>+b|}{\left\|w\right\|}</script><p>考虑所有误分类点的集合$M$, 对于在$M$中的数据点，如果$<w, x_i>+b<0$, 那么$y_i="1$。反过来，如果$<w," x_i>+b&gt;0$, 那么$y_i=-1$. 因此我们可以通过乘以$y_i$来去掉距离中的绝对值，因为绝对值的存在会妨碍我们优化模型。现在定义距离为</0$,></w,></p>
+\frac{|<w,x_i>+b|}{\left\|w\right\|}</script><p>考虑所有误分类点的集合$M$, 对于在$M$中的数据点，如果<script type="math/tex"><w, x_i>+b<0</script>, 那么<script type="math/tex">y_i=1</script>。反过来，如果​<script type="math/tex"><w, x_i>+b>0</script>, 那么​<script type="math/tex">y_i=-1</script>. 因此我们可以通过乘以<script type="math/tex">y_i</script>来去掉距离中的绝对值，因为绝对值的存在会妨碍我们优化模型。现在定义距离为</p>
 <script type="math/tex; mode=display">
 \frac{-y_i(<w,x_i>+b)}{\left\|w\right\|}</script><p>所以，我们的损失函数为</p>
 <script type="math/tex; mode=display">
-Loss(w, b)= \frac{-\sum_{i\in M}y_i(<w,x_i>+b)}{\left\|w\right\|}</script><p>考虑到我们的数据是线性可分的，最终$Loss(w, b)=0$。因此，为了是优化更加简单，我们定义损失函数为</p>
+Loss(w, b)= \frac{-\sum_{i\in M}y_i(<w,x_i>+b)}{\left\|w\right\|}</script><p>考虑到我们的数据是线性可分的，最终<script type="math/tex">Loss(w, b)=0​</script>。因此，为了是优化更加简单，我们定义损失函数为</p>
 <script type="math/tex; mode=display">
 Loss(w, b)= -\sum_{i\in M}y_i(<w,x_i>+b)</script><p>现在，考虑如何优化损失函数。我们采用随机梯度下降法(SGD)， 首先对损失函数求导</p>
 <script type="math/tex; mode=display">
 \begin{align*}
     &\nabla_w L(w,b)= - \sum_{i\in M} y_i x_i\\
     &\nabla_b L(w,b)= - \sum_{i\in M} y_i\\
-\end{align*}</script><p>随机选择一个$(x_i, y_i)$， 更新权重</p>
+\end{align*}</script><p>随机选择一个<script type="math/tex">(x_i, y_i)</script>， 更新权重</p>
 <script type="math/tex; mode=display">
 w\leftarrow w+\eta y_ix_i\\
 b\leftarrow b+\eta y_i</script><p>最后进行迭代直到损失函数为0。</p>

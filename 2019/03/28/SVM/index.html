@@ -79,20 +79,23 @@
 
 
 
-<meta name="description" content="SVM的直观感受对于线性可分的数据，在感知机那一块，我们知道感知机无法确定一个唯一的超平面，随着$w, b$的初始化值得不同，最终得到的超平面也有可能不同。这是首我们就要考虑添加一个限制条件来求得一个唯一的超平面。掏出我们之前的那张图：  直观上，我们会觉得图中 的蓝色超平面优于黄色和红色，因为相较于其他两条直线，蓝色离两个数据簇都较远，直观上蓝色会更加稳定。 现在考虑寻找下图中的最优平面，和前面">
+<meta name="description" content="一. 硬间隔SVM直观感受对于线性可分的数据，在感知机那一块，我们知道感知机无法确定一个唯一的超平面，随着$w, b$的初始化值得不同，最终得到的超平面也有可能不同。这是首我们就要考虑添加一个限制条件来求得一个唯一的超平面。掏出我们之前的那张图：  直观上，我们会觉得图中 的蓝色超平面优于黄色和红色，因为相较于其他两条直线，蓝色离两个数据簇都较远，直观上蓝色会更加稳定。 现在考虑寻找下图中的最优平">
 <meta name="keywords" content="Machine Learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SVM">
 <meta property="og:url" content="http://yoursite.com/2019/03/28/SVM/index.html">
 <meta property="og:site_name" content="Do it">
-<meta property="og:description" content="SVM的直观感受对于线性可分的数据，在感知机那一块，我们知道感知机无法确定一个唯一的超平面，随着$w, b$的初始化值得不同，最终得到的超平面也有可能不同。这是首我们就要考虑添加一个限制条件来求得一个唯一的超平面。掏出我们之前的那张图：  直观上，我们会觉得图中 的蓝色超平面优于黄色和红色，因为相较于其他两条直线，蓝色离两个数据簇都较远，直观上蓝色会更加稳定。 现在考虑寻找下图中的最优平面，和前面">
+<meta property="og:description" content="一. 硬间隔SVM直观感受对于线性可分的数据，在感知机那一块，我们知道感知机无法确定一个唯一的超平面，随着$w, b$的初始化值得不同，最终得到的超平面也有可能不同。这是首我们就要考虑添加一个限制条件来求得一个唯一的超平面。掏出我们之前的那张图：  直观上，我们会觉得图中 的蓝色超平面优于黄色和红色，因为相较于其他两条直线，蓝色离两个数据簇都较远，直观上蓝色会更加稳定。 现在考虑寻找下图中的最优平">
 <meta property="og:locale" content="zh_Hans">
 <meta property="og:image" content="http://yoursite.com/2019/03/28/SVM/plot1.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/28/SVM/plot2.png">
-<meta property="og:updated_time" content="2019-03-28T19:36:59.747Z">
+<meta property="og:image" content="http://yoursite.com/2019/03/28/SVM/plot3.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/28/SVM/plot4.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/28/SVM/plot5.png">
+<meta property="og:updated_time" content="2019-03-29T02:13:33.536Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SVM">
-<meta name="twitter:description" content="SVM的直观感受对于线性可分的数据，在感知机那一块，我们知道感知机无法确定一个唯一的超平面，随着$w, b$的初始化值得不同，最终得到的超平面也有可能不同。这是首我们就要考虑添加一个限制条件来求得一个唯一的超平面。掏出我们之前的那张图：  直观上，我们会觉得图中 的蓝色超平面优于黄色和红色，因为相较于其他两条直线，蓝色离两个数据簇都较远，直观上蓝色会更加稳定。 现在考虑寻找下图中的最优平面，和前面">
+<meta name="twitter:description" content="一. 硬间隔SVM直观感受对于线性可分的数据，在感知机那一块，我们知道感知机无法确定一个唯一的超平面，随着$w, b$的初始化值得不同，最终得到的超平面也有可能不同。这是首我们就要考虑添加一个限制条件来求得一个唯一的超平面。掏出我们之前的那张图：  直观上，我们会觉得图中 的蓝色超平面优于黄色和红色，因为相较于其他两条直线，蓝色离两个数据簇都较远，直观上蓝色会更加稳定。 现在考虑寻找下图中的最优平">
 <meta name="twitter:image" content="http://yoursite.com/2019/03/28/SVM/plot1.png">
 
 
@@ -322,7 +325,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  782
+                  959
                 </span>
               
 
@@ -359,11 +362,12 @@
       
 
       
-        <h2 id="SVM的直观感受"><a href="#SVM的直观感受" class="headerlink" title="SVM的直观感受"></a>SVM的直观感受</h2><p>对于线性可分的数据，在感知机那一块，我们知道感知机无法确定一个唯一的超平面，随着$w, b$的初始化值得不同，最终得到的超平面也有可能不同。这是首我们就要考虑添加一个限制条件来求得一个唯一的超平面。掏出我们之前的那张图：</p>
+        <h1 id="一-硬间隔SVM"><a href="#一-硬间隔SVM" class="headerlink" title="一. 硬间隔SVM"></a>一. 硬间隔SVM</h1><h2 id="直观感受"><a href="#直观感受" class="headerlink" title="直观感受"></a>直观感受</h2><p>对于线性可分的数据，在感知机那一块，我们知道感知机无法确定一个唯一的超平面，随着$w, b$的初始化值得不同，最终得到的超平面也有可能不同。这是首我们就要考虑添加一个限制条件来求得一个唯一的超平面。掏出我们之前的那张图：</p>
 <p><img src="/2019/03/28/SVM/plot1.png" alt></p>
 <p>直观上，我们会觉得图中 的蓝色超平面优于黄色和红色，因为相较于其他两条直线，蓝色离两个数据簇都较远，直观上蓝色会更加稳定。</p>
-<p>现在考虑寻找下图中的最优平面，和前面的一样，我们会认为超平面A优于其他两个，因为A与两个数据簇较远。例如超平面C就与点1离的太近。现在我们可以考虑给予这样的限制：两个数据簇中，离超平面最近的那个点的距离要足够大。例如，对于超平面C来说，我们希望蓝色数据簇中的点1离超平面足够大，红色数据簇中点6离超平面A足够大。为了找到一个这样的超平面，我们又要回到感知机中的点到超平面的距离的定义。</p>
+<p>现在考虑寻找下图中的最优平面，和前面的一样，我们会认为超平面A优于其他两个，因为A与两个数据簇较远。例如超平面C就与点1离的太近。现在我们可以考虑给予这样的限制：两个数据簇中，离超平面最近的那个点的距离要足够大。例如，对于超平面C来说，我们希望蓝色数据簇中的点1离超平面足够大，红色数据簇中点6离超平面A足够大。</p>
 <p><img src="/2019/03/28/SVM/plot2.png" width="50%" height="50%"></p>
+<h2 id="数学视角"><a href="#数学视角" class="headerlink" title="数学视角"></a>数学视角</h2><p>为了找到一个这样的超平面，我们又要回到感知机中的点到超平面的距离的定义。</p>
 <p>函数间隔公式：</p>
 <script type="math/tex; mode=display">
 \hat \gamma_i=|<w,x_i>+b|</script><p>几何间隔公式：</p>
@@ -392,8 +396,16 @@
 \begin{align}
 \min \limits_{w, b} &\ \frac{\left\|w\right\|^2}{2}\\ \nonumber
 \text{s.t. } & y_i(<w, x_i>+b)\ge 1, \text{ for i = 1,2,3,..., n}
-\end{align}</script><p>这就是硬间隔的SVM的原始问题。</p>
-<p>……未完……</p>
+\end{align}</script><p>这就是硬间隔SVM的原始问题。</p>
+<p>为了求解这个最优化问题，考虑其对偶问题。首先我们定义其lagrange函数：</p>
+<script type="math/tex; mode=display">
+L(w, b, \alpha)=\frac{\left\|w\right\|^2}{2}+\sum\limits_{i=1}^n\alpha_i(1-y_i(<w, x_i>+b))=\frac{\left\|w\right\|^2}{2}+\sum\limits_{i=1}^n\alpha_i-\sum\limits_{i=1}^n\alpha_iy_i(<w, x_i>+b)</script><p>这时候，原始问题就变为了<script type="math/tex">\min\limits_{w, b}\max\limits_{\alpha}L(w, b, \alpha)​</script>。其对偶问题就为<script type="math/tex">\max\limits_{\alpha}\min\limits_{w, b}L(w, b, \alpha)​</script>。</p>
+<p>现在，我们可以先求极小值，<script type="math/tex">\min\limits_{w, b}L(w, b, \alpha)</script>。对其分别求导，带入原式，我们可以得到最终的对偶问题。</p>
+<p><img src="/2019/03/28/SVM/plot3.png" alt></p>
+<p><img src="/2019/03/28/SVM/plot4.png" alt></p>
+<p>据此，我们得到了其对偶问题，同时，我们有以下定理</p>
+<p><img src="/2019/03/28/SVM/plot5.png" alt></p>
+<p>….未完待续….</p>
 
       
     </div>
@@ -577,7 +589,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SVM的直观感受"><span class="nav-number">1.</span> <span class="nav-text">SVM的直观感受</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一-硬间隔SVM"><span class="nav-number">1.</span> <span class="nav-text">一. 硬间隔SVM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#直观感受"><span class="nav-number">1.1.</span> <span class="nav-text">直观感受</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数学视角"><span class="nav-number">1.2.</span> <span class="nav-text">数学视角</span></a></li></ol></li></ol></div>
             
 
           </div>

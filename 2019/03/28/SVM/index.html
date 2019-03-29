@@ -92,7 +92,8 @@
 <meta property="og:image" content="http://yoursite.com/2019/03/28/SVM/plot3.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/28/SVM/plot4.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/28/SVM/plot5.png">
-<meta property="og:updated_time" content="2019-03-29T02:13:33.536Z">
+<meta property="og:image" content="http://yoursite.com/2019/03/28/SVM/plot6.png">
+<meta property="og:updated_time" content="2019-03-29T23:00:16.527Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SVM">
 <meta name="twitter:description" content="一. 硬间隔SVM直观感受对于线性可分的数据，在感知机那一块，我们知道感知机无法确定一个唯一的超平面，随着$w, b$的初始化值得不同，最终得到的超平面也有可能不同。这是首我们就要考虑添加一个限制条件来求得一个唯一的超平面。掏出我们之前的那张图：  直观上，我们会觉得图中 的蓝色超平面优于黄色和红色，因为相较于其他两条直线，蓝色离两个数据簇都较远，直观上蓝色会更加稳定。 现在考虑寻找下图中的最优平">
@@ -325,7 +326,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  959
+                  1.5k
                 </span>
               
 
@@ -341,7 +342,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  3
+                  5
                 </span>
               
             </div>
@@ -400,12 +401,28 @@
 <p>为了求解这个最优化问题，考虑其对偶问题。首先我们定义其lagrange函数：</p>
 <script type="math/tex; mode=display">
 L(w, b, \alpha)=\frac{\left\|w\right\|^2}{2}+\sum\limits_{i=1}^n\alpha_i(1-y_i(<w, x_i>+b))=\frac{\left\|w\right\|^2}{2}+\sum\limits_{i=1}^n\alpha_i-\sum\limits_{i=1}^n\alpha_iy_i(<w, x_i>+b)</script><p>这时候，原始问题就变为了<script type="math/tex">\min\limits_{w, b}\max\limits_{\alpha}L(w, b, \alpha)​</script>。其对偶问题就为<script type="math/tex">\max\limits_{\alpha}\min\limits_{w, b}L(w, b, \alpha)​</script>。</p>
-<p>现在，我们可以先求极小值，<script type="math/tex">\min\limits_{w, b}L(w, b, \alpha)</script>。对其分别求导，带入原式，我们可以得到最终的对偶问题。</p>
+<p>现在，我们可以先求极小值，<script type="math/tex">\min\limits_{w, b}L(w, b, \alpha)​</script>。对其分别求导，带入原式，我们可以得到最终的对偶问题。</p>
 <p><img src="/2019/03/28/SVM/plot3.png" alt></p>
 <p><img src="/2019/03/28/SVM/plot4.png" alt></p>
 <p>据此，我们得到了其对偶问题，同时，我们有以下定理</p>
 <p><img src="/2019/03/28/SVM/plot5.png" alt></p>
-<p>….未完待续….</p>
+<p>基于上面的定理，我们可以将我们的分类决策函数写为<script type="math/tex">f(x)=sign(\sum\limits_{i=1}^n\alpha_i^*y_i<x_i, x>+b^*)</script>。</p>
+<p>在上面的推导过程中，我们可以得知<script type="math/tex">\alpha_I^*\ge 0</script>,并且</p>
+<script type="math/tex; mode=display">
+w^*=\sum\limits_{i=1}^n\alpha_i^*y_ix_i\\
+b^*=y_j-\sum\limits_{i=1}^n\alpha_i^*y_i<x_i, x_j></script><p>不难发现，<script type="math/tex">w^*</script>和<script type="math/tex">b^*</script>只与数据中<script type="math/tex">\alpha_i^*>0</script>所对应的数据点有关。而且这些数据点决定了我们最终得到的超平面，因此我们把这些数据点叫做支持向量。</p>
+<p>到这里为止，已经基本阐述清楚对于线性可分数据的SVM的由来。但是对于线性不可分数据，我们怎么办？</p>
+<h1 id="二-软间隔SVM"><a href="#二-软间隔SVM" class="headerlink" title="二. 软间隔SVM"></a>二. 软间隔SVM</h1><h2 id="直观感受-1"><a href="#直观感受-1" class="headerlink" title="直观感受"></a>直观感受</h2><p>通常，数据非线性可分常常是由于部分异常点造成的。去除这些异常点之后，数据往往是线性可分的。</p>
+<p><img src="/2019/03/28/SVM/plot6.png" width="50%" height="50%"></p>
+<p>在上图中，我们可以看到如果我们去除超平面左侧区域的三个蓝色点，去除右侧区域的三个红色点，那么这个超片面就可以完美的将数据划分开了。既然这几个点是异常点（通常由数据噪声造成），那么假使我们忽略掉这六个点，即允许他们在超平面的两个间隔边界之间，这个超平面对于其他数据来说，就是一个完美的分离平面了。我们将这种SVM称为软间隔SVM。</p>
+<h2 id="数学视角-1"><a href="#数学视角-1" class="headerlink" title="数学视角"></a>数学视角</h2><p>允许数据点在超平面的两个间隔边界之间，这就意味着这些数据点到超平面的函数间隔小于1，这时候如果我们引入一个松弛变量<script type="math/tex">\xi</script>, 使得松弛变量和函数间隔之和大于等于1，这样所有数据就又满足了原来的约束条件。</p>
+<p>正式来说，对于软间隔SVM，我们原始优化问题是：</p>
+<script type="math/tex; mode=display">
+\begin{align}
+\min \limits_{w, b} &\ \frac{\left\|w\right\|^2}{2}+C\sum\limits_{i=1}^n\xi_i\\ \nonumber
+\text{s.t. } & y_i(<w, x_i>+b)\ge 1-\xi_i, \text{ for i = 1,2,3,..., n}\\ \nonumber
+&\xi_i\ge 0
+\end{align}</script><p>….未完待续….</p>
 
       
     </div>
@@ -589,7 +606,7 @@ L(w, b, \alpha)=\frac{\left\|w\right\|^2}{2}+\sum\limits_{i=1}^n\alpha_i(1-y_i(<
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一-硬间隔SVM"><span class="nav-number">1.</span> <span class="nav-text">一. 硬间隔SVM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#直观感受"><span class="nav-number">1.1.</span> <span class="nav-text">直观感受</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数学视角"><span class="nav-number">1.2.</span> <span class="nav-text">数学视角</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一-硬间隔SVM"><span class="nav-number">1.</span> <span class="nav-text">一. 硬间隔SVM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#直观感受"><span class="nav-number">1.1.</span> <span class="nav-text">直观感受</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数学视角"><span class="nav-number">1.2.</span> <span class="nav-text">数学视角</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二-软间隔SVM"><span class="nav-number">2.</span> <span class="nav-text">二. 软间隔SVM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#直观感受-1"><span class="nav-number">2.1.</span> <span class="nav-text">直观感受</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数学视角-1"><span class="nav-number">2.2.</span> <span class="nav-text">数学视角</span></a></li></ol></li></ol></div>
             
 
           </div>

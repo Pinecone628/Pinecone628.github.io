@@ -93,7 +93,8 @@
 <meta property="og:image" content="http://yoursite.com/2019/03/28/SVM/plot4.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/28/SVM/plot5.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/28/SVM/plot6.png">
-<meta property="og:updated_time" content="2019-03-29T23:00:16.527Z">
+<meta property="og:image" content="http://yoursite.com/2019/03/28/SVM/plot7.png">
+<meta property="og:updated_time" content="2019-03-30T02:19:26.427Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SVM">
 <meta name="twitter:description" content="一. 硬间隔SVM直观感受对于线性可分的数据，在感知机那一块，我们知道感知机无法确定一个唯一的超平面，随着$w, b$的初始化值得不同，最终得到的超平面也有可能不同。这是首我们就要考虑添加一个限制条件来求得一个唯一的超平面。掏出我们之前的那张图：  直观上，我们会觉得图中 的蓝色超平面优于黄色和红色，因为相较于其他两条直线，蓝色离两个数据簇都较远，直观上蓝色会更加稳定。 现在考虑寻找下图中的最优平">
@@ -326,7 +327,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  1.5k
+                  1.7k
                 </span>
               
 
@@ -342,7 +343,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  5
+                  6
                 </span>
               
             </div>
@@ -387,7 +388,7 @@
 \begin{align}
 \max \limits_{w, b} &\ \frac{\hat\gamma}{\left\|w\right\|}\\ \nonumber
 \text{s.t. } & y_i(<w, x_i>+b)\ge \hat \gamma, \text{ for i = 1,2,3,..., n}
-\end{align}</script><p>更进一步来说，如果我们对<script type="math/tex">w,b</script>放大<script type="math/tex">\lambda</script>倍，那么我们的优化问题变为</p>
+\end{align}</script><p>更进一步来说，如果我们对<script type="math/tex">w,b​</script>放大<script type="math/tex">\lambd<span class="">a</span>​</script>倍，那么我们的优化问题变为</p>
 <script type="math/tex; mode=display">
 \begin{align}
 \max \limits_{w, b} &\  \frac{\hat \gamma}{\lambda\left\|w\right\|}\\ \nonumber
@@ -414,15 +415,28 @@ b^*=y_j-\sum\limits_{i=1}^n\alpha_i^*y_i<x_i, x_j></script><p>不难发现，<sc
 <p>到这里为止，已经基本阐述清楚对于线性可分数据的SVM的由来。但是对于线性不可分数据，我们怎么办？</p>
 <h1 id="二-软间隔SVM"><a href="#二-软间隔SVM" class="headerlink" title="二. 软间隔SVM"></a>二. 软间隔SVM</h1><h2 id="直观感受-1"><a href="#直观感受-1" class="headerlink" title="直观感受"></a>直观感受</h2><p>通常，数据非线性可分常常是由于部分异常点造成的。去除这些异常点之后，数据往往是线性可分的。</p>
 <p><img src="/2019/03/28/SVM/plot6.png" width="50%" height="50%"></p>
-<p>在上图中，我们可以看到如果我们去除超平面左侧区域的三个蓝色点，去除右侧区域的三个红色点，那么这个超片面就可以完美的将数据划分开了。既然这几个点是异常点（通常由数据噪声造成），那么假使我们忽略掉这六个点，即允许他们在超平面的两个间隔边界之间，这个超平面对于其他数据来说，就是一个完美的分离平面了。我们将这种SVM称为软间隔SVM。</p>
-<h2 id="数学视角-1"><a href="#数学视角-1" class="headerlink" title="数学视角"></a>数学视角</h2><p>允许数据点在超平面的两个间隔边界之间，这就意味着这些数据点到超平面的函数间隔小于1，这时候如果我们引入一个松弛变量<script type="math/tex">\xi</script>, 使得松弛变量和函数间隔之和大于等于1，这样所有数据就又满足了原来的约束条件。</p>
+<p>在上图中，我们可以看到如果我们去除超平面左侧区域的三个蓝色点，去除右侧区域的三个红色点，那么这个超片面就可以完美的将数据划分开了。因此，在这种情况下，我们无法用原来的约束来求得一个超平面，我们考虑修改约束条件。这时候，我们引进一个松弛变量<script type="math/tex">\xi</script>。</p>
+<h2 id="数学视角-1"><a href="#数学视角-1" class="headerlink" title="数学视角"></a>数学视角</h2><p>引进松弛变量的原因是在线性不可分数据的情况下，原问题的约束条件<script type="math/tex">y_i(<w, x_i>+b)\ge 1, \text{ for i = 1,2,3,..., n}</script>无法满足，即不能保证所有数据点到分离超平面的函数间隔都大于等于1。这时候如果我们引入一个松弛变量<script type="math/tex">\xi</script>, 使得松弛变量和函数间隔之和大于等于1，这样所有数据就又满足了原来的约束条件。</p>
 <p>正式来说，对于软间隔SVM，我们原始优化问题是：</p>
 <script type="math/tex; mode=display">
 \begin{align}
 \min \limits_{w, b} &\ \frac{\left\|w\right\|^2}{2}+C\sum\limits_{i=1}^n\xi_i\\ \nonumber
 \text{s.t. } & y_i(<w, x_i>+b)\ge 1-\xi_i, \text{ for i = 1,2,3,..., n}\\ \nonumber
 &\xi_i\ge 0
-\end{align}</script><p>….未完待续….</p>
+\end{align}</script><p>上式中，<script type="math/tex">C\sum\limits_{i=1}^n\xi_i</script>是我们的惩罚项，即我们不能无限的放宽限制条件来容忍噪声。<script type="math/tex">C</script>是我们的调和系数，通过它我们可以控制我们对噪声的容忍程度，当C较大的时候，松弛变量就会缩小。</p>
+<p>与硬间隔的SVM相比，我们发现软间隔只是添加了一个额外的松弛变量，因此对于其对偶问题，我们可以通过相同的方法快速求得：</p>
+<script type="math/tex; mode=display">
+\begin{align}
+    \min \limits_\alpha & \frac{1}{2}\sum_{i=1}^n\sum_{j=1}^n\alpha_i\alpha_j y_i y_j<x_i, x_j> - \sum_{i=1}^n\alpha_i\\ \nonumber
+    \text{ s.t. } &\sum_{i=1}^n\alpha_i y_i=0\\ \nonumber
+    &\alpha_i\ge 0\\ \nonumber
+    & 0 \le \alpha_i \le C\\ \nonumber
+\end{align}</script><p>类似的，我们可以求得</p>
+<script type="math/tex; mode=display">
+w^*=\sum\limits_{i=1}^n\alpha_i^*y_ix_i\\
+b^*=y_j-\sum\limits_{i=1}^n\alpha_i^*y_i<x_i, x_j></script><p>对于软间隔SVM的支持向量，情况略微复杂。下图中标了距离的都是支持向量。</p>
+<p><img src="/2019/03/28/SVM/plot7.png" alt></p>
+<p>….未完待续….</p>
 
       
     </div>

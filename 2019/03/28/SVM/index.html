@@ -100,7 +100,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/03/28/SVM/plot11.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/28/SVM/plot12.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/28/SVM/plot13.png">
-<meta property="og:updated_time" content="2019-04-01T02:21:26.599Z">
+<meta property="og:updated_time" content="2019-04-01T02:24:06.586Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SVM">
 <meta name="twitter:description" content="一. 硬间隔SVM直观感受对于线性可分的数据，在感知机那一块，我们知道感知机无法确定一个唯一的超平面，随着$w, b$的初始化值得不同，最终得到的超平面也有可能不同。这是首我们就要考虑添加一个限制条件来求得一个唯一的超平面。掏出我们之前的那张图：  直观上，我们会觉得图中 的蓝色超平面优于黄色和红色，因为相较于其他两条直线，蓝色离两个数据簇都较远，直观上蓝色会更加稳定。 现在考虑寻找下图中的最优平">
@@ -380,7 +380,7 @@
 <script type="math/tex; mode=display">
 \hat \gamma_i=|<w,x_i>+b|</script><p>几何间隔公式：</p>
 <script type="math/tex; mode=display">
-\gamma_i=\frac{|<w,x_i>+b|}{\left\|w\right\|}</script><p>对于我们的超平面来说，<script type="math/tex"><w, x_i>+b=0</script>和<script type="math/tex"><2w, x_i>+2b=0</script>是完全一样的，但是在计算函数间隔的时候，这就会对我们造成困扰，距离会放大两倍。所以我们采用几何间隔来规范化距离。同时，为了之后求解的方便，我们去掉绝对值，</p>
+\gamma_i=\frac{|<w,x_i>+b|}{\left\|w\right\|}</script><p>对于我们的超平面来说，<script type="math/tex"><w, x_i>+b=0​</script>和<script type="math/tex"><2w, x_i>+2b=0​</script>是完全一样的，但是在计算函数间隔的时候，这就会对我们造成困扰，距离会放大两倍。所以我们采用几何间隔来规范化距离。同时，为了之后求解的方便，我们去掉绝对值，</p>
 <script type="math/tex; mode=display">
 \gamma_i=\frac{-y_i(<w,x_i>+b)}{\left\|w\right\|}</script><p>现在，考虑到我们要找到某个数据簇离超平面的最小距离，定义</p>
 <script type="math/tex; mode=display">
@@ -394,7 +394,7 @@
 \begin{align}
 \max \limits_{w, b} &\ \frac{\hat\gamma}{\left\|w\right\|}\\ \nonumber
 \text{s.t. } & y_i(<w, x_i>+b)\ge \hat \gamma, \text{ for i = 1,2,3,..., n}
-\end{align}</script><p>更进一步来说，如果我们对<script type="math/tex">w,b​</script>放大<script type="math/tex">\lambd<span class="">a</span>​</script>倍，那么我们的优化问题变为</p>
+\end{align}</script><p>更进一步来说，如果我们对<script type="math/tex">w,b</script>放大<script type="math/tex">\lambda​</script>倍，那么我们的优化问题变为</p>
 <script type="math/tex; mode=display">
 \begin{align}
 \max \limits_{w, b} &\  \frac{\hat \gamma}{\lambda\left\|w\right\|}\\ \nonumber

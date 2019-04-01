@@ -94,7 +94,13 @@
 <meta property="og:image" content="http://yoursite.com/2019/03/28/SVM/plot5.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/28/SVM/plot6.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/28/SVM/plot7.png">
-<meta property="og:updated_time" content="2019-03-30T02:19:26.427Z">
+<meta property="og:image" content="http://yoursite.com/2019/03/28/SVM/plot8.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/28/SVM/plot9.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/28/SVM/plot10.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/28/SVM/plot11.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/28/SVM/plot12.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/28/SVM/plot13.png">
+<meta property="og:updated_time" content="2019-04-01T02:21:26.599Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SVM">
 <meta name="twitter:description" content="一. 硬间隔SVM直观感受对于线性可分的数据，在感知机那一块，我们知道感知机无法确定一个唯一的超平面，随着$w, b$的初始化值得不同，最终得到的超平面也有可能不同。这是首我们就要考虑添加一个限制条件来求得一个唯一的超平面。掏出我们之前的那张图：  直观上，我们会觉得图中 的蓝色超平面优于黄色和红色，因为相较于其他两条直线，蓝色离两个数据簇都较远，直观上蓝色会更加稳定。 现在考虑寻找下图中的最优平">
@@ -327,7 +333,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  1.7k
+                  1.8k
                 </span>
               
 
@@ -343,7 +349,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  6
+                  7
                 </span>
               
             </div>
@@ -434,9 +440,35 @@ b^*=y_j-\sum\limits_{i=1}^n\alpha_i^*y_i<x_i, x_j></script><p>不难发现，<sc
 \end{align}</script><p>类似的，我们可以求得</p>
 <script type="math/tex; mode=display">
 w^*=\sum\limits_{i=1}^n\alpha_i^*y_ix_i\\
-b^*=y_j-\sum\limits_{i=1}^n\alpha_i^*y_i<x_i, x_j></script><p>对于软间隔SVM的支持向量，情况略微复杂。下图中标了距离的都是支持向量。</p>
-<p><img src="/2019/03/28/SVM/plot7.png" alt></p>
-<p>….未完待续….</p>
+b^*=y_j-\sum\limits_{i=1}^n\alpha_i^*y_i<x_i, x_j></script><p>对于硬间隔SVM，我们知道<script type="math/tex">\alpha_i^*>0</script>对应的数据点是支持向量。对于软间隔SVM的支持向量，情况略微复杂。下图中标了距离的都是支持向量。</p>
+<script type="math/tex; mode=display">
+\begin{align*}
+\alpha_i^*&\left\{
+             \begin{array}{lr}
+             =0,  \text{ }数据点正确分割，且在间隔边界外，即不是支持向量  \newline
+             <C,  \text{ }\xi_i=0, 数据点恰好在分隔边界上，为支持向量机 \newline
+             =C， 0<\xi_i<1, 数据点正确分类，但在分隔边界和超平面之间，为支持向量 \newline
+             =C,  \text{ }\xi_i=1, 数据点在超平面上，为支持向量 \newline
+             =C,  \text{ }\xi_i>1, 数据分类错误，位于超平面另一侧， 为支持向量
+             \end{array}
+\right.
+\end{align*}</script><p><img src="/2019/03/28/SVM/plot7.png" alt></p>
+<h2 id="合页函数"><a href="#合页函数" class="headerlink" title="合页函数"></a>合页函数</h2><p>SVM还有另外一个解释，即考虑<script type="math/tex">\min\limits_{w, b}[1-y_i(<w, x_i>+b)]_++\lambda||w||^2</script>，其中<script type="math/tex">[z]_+=max(0, z)</script>。对于目标函数的第一项，如果我们正确分类数据点，但是其到超平面的距离小于1，那么我们依旧有损失。只有当数据正确分类且到超平面的距离大于等于1，第一项才为0。第二项为正则项。</p>
+<p>与原始SVM最优化问题的联系：</p>
+<p>基于上面对于目标函数的分析，我们可以看出第一项就是软间隔SVM里面的松弛变量<script type="math/tex">\xi_i</script>。同时如果我们假定<script type="math/tex">\lambda=\frac{1}{2C}</script>, 那么我们就有<script type="math/tex">\min\limits_{w, b}\frac{1}{C}(\frac{||w||^2}{2}+C\sum\limits_{i=1}^n\xi_i)</script>。</p>
+<h1 id="Kernel"><a href="#Kernel" class="headerlink" title="Kernel"></a>Kernel</h1><h2 id="直观感受-2"><a href="#直观感受-2" class="headerlink" title="直观感受"></a>直观感受</h2><p>对于上面的硬间隔SVM和软间隔SVM，我们的对象都是线性可分数据或者近似线性可分数据。那么对于非线性可分数据呢？这时候为了使用SVM，我们需要考虑核函数（Kernel）。直观上，核函数就是一种映射，将原本线性不可分的数据映射到另一个空间，从而线性可分。通俗来讲，就是变化坐标系。如下图：</p>
+<p><img src="/2019/03/28/SVM/plot8.png" alt></p>
+<p>对于原数据，在原坐标系下面，是无法通过一个超平面将其划分开来的。但是我们可以看到可以用一个超曲面，这里为椭圆，将数据划分开。通过变换坐标系，我们可以看到右图中的数据线性可分了。</p>
+<h2 id="数学视角-2"><a href="#数学视角-2" class="headerlink" title="数学视角"></a>数学视角</h2><p>那么到底什么是核函数？怎么定义核函数？</p>
+<p><img src="/2019/03/28/SVM/plot9.png" alt></p>
+<p><img src="/2019/03/28/SVM/plot10.png" alt></p>
+<p>从上面的定义，我们可以看到对于一个核函数，其可以有不同的映射函数和特征空间，因此对于我们使用来说会很不方便。实际上，在使用核函数技巧的时候，我们都是直接定义和使用核函数，而不考虑其具体的映射函数和特征空间。</p>
+<p>回忆支持向量机的对偶形式，其中包含了输入实例和实例的内积，核函数就应用在这个内积上。对偶问题的目标函数和决策函数为:</p>
+<p><img src="/2019/03/28/SVM/plot11.png" alt></p>
+<p><img src="/2019/03/28/SVM/plot12.png" alt></p>
+<p>常用核函数：</p>
+<p><img src="/2019/03/28/SVM/plot13.png" alt></p>
+<h1 id="序列最小最优化问题-SMO"><a href="#序列最小最优化问题-SMO" class="headerlink" title="序列最小最优化问题(SMO)"></a>序列最小最优化问题(SMO)</h1><p>….未完待续….</p>
 
       
     </div>
@@ -620,7 +652,7 @@ b^*=y_j-\sum\limits_{i=1}^n\alpha_i^*y_i<x_i, x_j></script><p>对于软间隔SVM
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一-硬间隔SVM"><span class="nav-number">1.</span> <span class="nav-text">一. 硬间隔SVM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#直观感受"><span class="nav-number">1.1.</span> <span class="nav-text">直观感受</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数学视角"><span class="nav-number">1.2.</span> <span class="nav-text">数学视角</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二-软间隔SVM"><span class="nav-number">2.</span> <span class="nav-text">二. 软间隔SVM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#直观感受-1"><span class="nav-number">2.1.</span> <span class="nav-text">直观感受</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数学视角-1"><span class="nav-number">2.2.</span> <span class="nav-text">数学视角</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一-硬间隔SVM"><span class="nav-number">1.</span> <span class="nav-text">一. 硬间隔SVM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#直观感受"><span class="nav-number">1.1.</span> <span class="nav-text">直观感受</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数学视角"><span class="nav-number">1.2.</span> <span class="nav-text">数学视角</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二-软间隔SVM"><span class="nav-number">2.</span> <span class="nav-text">二. 软间隔SVM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#直观感受-1"><span class="nav-number">2.1.</span> <span class="nav-text">直观感受</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数学视角-1"><span class="nav-number">2.2.</span> <span class="nav-text">数学视角</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#合页函数"><span class="nav-number">2.3.</span> <span class="nav-text">合页函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Kernel"><span class="nav-number">3.</span> <span class="nav-text">Kernel</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#直观感受-2"><span class="nav-number">3.1.</span> <span class="nav-text">直观感受</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数学视角-2"><span class="nav-number">3.2.</span> <span class="nav-text">数学视角</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#序列最小最优化问题-SMO"><span class="nav-number">4.</span> <span class="nav-text">序列最小最优化问题(SMO)</span></a></li></ol></div>
             
 
           </div>

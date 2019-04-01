@@ -91,7 +91,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/03/26/感知机-Perceptron/plot2.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/26/感知机-Perceptron/plot3.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/26/感知机-Perceptron/plot4.png">
-<meta property="og:updated_time" content="2019-03-28T16:39:54.387Z">
+<meta property="og:updated_time" content="2019-04-01T01:09:13.672Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="感知机-Perceptron">
 <meta name="twitter:description" content="感知机的直观感受感知机是机器学习中的最基本也是最简单的一个算法。下图就是一个例子。  例如，我们有一个二维数据，横轴为$X_1$, 纵轴为$X_2$。图中有黄蓝红三条直线，都可以将两簇数据完美划分。其实，这三条直线就是感知机的分割线。如果数据是n维的，那就是分离超平面了。 并且我们需要注意到，感知机是没有一个确定解的。因为我们的目标只是将两个数据簇分开。如果想要确定一个唯一的超平面，那需要加限制条">
@@ -366,7 +366,7 @@
 <p>例如，我们有一个二维数据，横轴为$X_1$, 纵轴为$X_2$。图中有黄蓝红三条直线，都可以将两簇数据完美划分。其实，这三条直线就是感知机的分割线。如果数据是n维的，那就是分离超平面了。</p>
 <p>并且我们需要注意到，感知机是没有一个确定解的。因为我们的目标只是将两个数据簇分开。如果想要确定一个唯一的超平面，那需要加限制条件，这将是SVM的内容。</p>
 <h2 id="感知机的数学视角"><a href="#感知机的数学视角" class="headerlink" title="感知机的数学视角"></a>感知机的数学视角</h2><p>对于这样一个模型，我们怎么来找到一个超平面呢？</p>
-<p>首先，如前面所说，感知机是依靠超平面来划分数据集的。数学上，我们定义超平面为<script type="math/tex"><w, x>+b​</script> ，其中$w​$为超平面的法向量，$b​$为超平面的偏置。同时，由于我们需要通过这个超平面来划分数据，而我们的数据的标志<script type="math/tex">y\in\{-1, +1\}​</script>, 因此我们定义函数为<script type="math/tex">f(x)=sign(<w, x>+b)​</script>，其中</p>
+<p>首先，如前面所说，感知机是依靠超平面来划分数据集的。数学上，我们定义超平面为<script type="math/tex"><w, x>+b</script> ，其中$w$为超平面的法向量，$b$为超平面的偏置。同时，由于我们需要通过这个超平面来划分数据，而我们的数据的标志<script type="math/tex">y\in\{-1, +1\}</script>, 因此我们定义函数为<script type="math/tex">f(x)=sign(<w, x>+b)​</script>，其中</p>
 <script type="math/tex; mode=display">
 \begin{align*}
 sign(<w, x>+b)&=\left\{

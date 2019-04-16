@@ -100,7 +100,12 @@
 <meta property="og:image" content="http://yoursite.com/2019/03/28/SVM/plot11.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/28/SVM/plot12.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/28/SVM/plot13.png">
-<meta property="og:updated_time" content="2019-04-01T02:24:06.586Z">
+<meta property="og:image" content="http://yoursite.com/2019/03/28/SVM/plot14.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/28/SVM/plot15.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/28/SVM/plot16.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/28/SVM/plot17.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/28/SVM/plot18.png">
+<meta property="og:updated_time" content="2019-04-16T02:04:13.102Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SVM">
 <meta name="twitter:description" content="一. 硬间隔SVM直观感受对于线性可分的数据，在感知机那一块，我们知道感知机无法确定一个唯一的超平面，随着$w, b$的初始化值得不同，最终得到的超平面也有可能不同。这是首我们就要考虑添加一个限制条件来求得一个唯一的超平面。掏出我们之前的那张图：  直观上，我们会觉得图中 的蓝色超平面优于黄色和红色，因为相较于其他两条直线，蓝色离两个数据簇都较远，直观上蓝色会更加稳定。 现在考虑寻找下图中的最优平">
@@ -468,7 +473,31 @@ b^*=y_j-\sum\limits_{i=1}^n\alpha_i^*y_i<x_i, x_j></script><p>对于硬间隔SVM
 <p><img src="/2019/03/28/SVM/plot12.png" alt></p>
 <p>常用核函数：</p>
 <p><img src="/2019/03/28/SVM/plot13.png" alt></p>
-<h1 id="序列最小最优化问题-SMO"><a href="#序列最小最优化问题-SMO" class="headerlink" title="序列最小最优化问题(SMO)"></a>序列最小最优化问题(SMO)</h1><p>….未完待续….</p>
+<h1 id="序列最小最优化问题-SMO"><a href="#序列最小最优化问题-SMO" class="headerlink" title="序列最小最优化问题(SMO)"></a>序列最小最优化问题(SMO)</h1><h2 id="直观理解"><a href="#直观理解" class="headerlink" title="直观理解"></a>直观理解</h2><p>SMO是高效实现SVM的一种方法。</p>
+<p>首先考虑软间隔SVM的对偶问题。</p>
+<script type="math/tex; mode=display">
+\begin{align}
+    \min \limits_\alpha & \frac{1}{2}\sum_{i=1}^n\sum_{j=1}^n\alpha_i\alpha_j y_i y_j<x_i, x_j> - \sum_{i=1}^n\alpha_i\\ \nonumber
+    \text{ s.t. } &\sum_{i=1}^n\alpha_i y_i=0\\ \nonumber
+    &\alpha_i\ge 0\\ \nonumber
+    & 0 \le \alpha_i \le C\\ \nonumber
+\end{align}</script><p>其中，每一个<script type="math/tex">\alpha_i</script>对应一个数据点<script type="math/tex">(x_i, y_i)</script>。所以变量的数据等于样本的数目。</p>
+<p>由KKT我们可以得知，如果这个问题有最优解，那么他肯定满足KKT条件。如果不是最优解，那么可能无法满足KKT条件。但是同时考虑N个变量的最优化问题会非常复杂，且很难直接求解。</p>
+<p>这时候我们就可以考虑SMO算法。SMO算法选择了其中两个<script type="math/tex">\alpha</script>为变量，固定了其他所有的变量，所以问题就变为了一个二次规划问题。选择两个<script type="math/tex">\alpha</script>的原因是对偶问题的一个限制条件是<script type="math/tex">\sum\limits_{i=1}^n\alpha_iy_i=0</script>，如果只有一个<script type="math/tex">\alpha</script>是变量，那么其实他直接可以由其他的解出来，就无法优化了。</p>
+<p>另一个角度考虑，这个二次规划问题的解肯定会使目标函数减小，从而二次规划问题的解也会更加靠近最优解。</p>
+<h2 id="数学理解"><a href="#数学理解" class="headerlink" title="数学理解"></a>数学理解</h2><p>不是一般性，我们可以考虑<script type="math/tex">\alpha_1</script>和<script type="math/tex">\alpha_2</script>为变量，固定其他所有的变量。对(14)进行改写，</p>
+<p><img src="/2019/03/28/SVM/plot14.png" alt></p>
+<p>上面的优化问题的限制条件告诉我们，<script type="math/tex">\alpha \in [0, C]</script>， 即<script type="math/tex">\alpha</script>是存在边界的，因此当我们计算得到最优的<script type="math/tex">\alpha</script>的时候，还要考虑其边界问题。因为只有两个变量，且都有范围，可以用二维平面图来解释。</p>
+<p><img src="/2019/03/28/SVM/plot15.png" alt></p>
+<p>由于我们固定了其他变量，并且<script type="math/tex">y_i\in \{-1, +1\}</script>，最优化问题的解就在一条与对角线平行的线段上。变量的便捷点我们也可以很快的就求出来。</p>
+<p><img src="/2019/03/28/SVM/plot16.png" alt></p>
+<p>同时，我们可以求得优化问题的迭代公式</p>
+<p><img src="/2019/03/28/SVM/plot17.png" alt></p>
+<h2 id="变量选择"><a href="#变量选择" class="headerlink" title="变量选择"></a>变量选择</h2><p>第一个变量，我们选择违反KKT条件最严重的点。</p>
+<p><img src="/2019/03/28/SVM/plot18.png" alt></p>
+<p>第二个变量选取的宗旨是使得<script type="math/tex">|E_1-E_2|</script>最大。</p>
+<p>具体可见李航的统计学原理P129。</p>
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><p>….未完待续….</p>
 
       
     </div>
@@ -656,7 +685,7 @@ b^*=y_j-\sum\limits_{i=1}^n\alpha_i^*y_i<x_i, x_j></script><p>对于硬间隔SVM
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一-硬间隔SVM"><span class="nav-number">1.</span> <span class="nav-text">一. 硬间隔SVM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#直观感受"><span class="nav-number">1.1.</span> <span class="nav-text">直观感受</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数学视角"><span class="nav-number">1.2.</span> <span class="nav-text">数学视角</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二-软间隔SVM"><span class="nav-number">2.</span> <span class="nav-text">二. 软间隔SVM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#直观感受-1"><span class="nav-number">2.1.</span> <span class="nav-text">直观感受</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数学视角-1"><span class="nav-number">2.2.</span> <span class="nav-text">数学视角</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#合页函数"><span class="nav-number">2.3.</span> <span class="nav-text">合页函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Kernel"><span class="nav-number">3.</span> <span class="nav-text">Kernel</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#直观感受-2"><span class="nav-number">3.1.</span> <span class="nav-text">直观感受</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数学视角-2"><span class="nav-number">3.2.</span> <span class="nav-text">数学视角</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#序列最小最优化问题-SMO"><span class="nav-number">4.</span> <span class="nav-text">序列最小最优化问题(SMO)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一-硬间隔SVM"><span class="nav-number">1.</span> <span class="nav-text">一. 硬间隔SVM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#直观感受"><span class="nav-number">1.1.</span> <span class="nav-text">直观感受</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数学视角"><span class="nav-number">1.2.</span> <span class="nav-text">数学视角</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二-软间隔SVM"><span class="nav-number">2.</span> <span class="nav-text">二. 软间隔SVM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#直观感受-1"><span class="nav-number">2.1.</span> <span class="nav-text">直观感受</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数学视角-1"><span class="nav-number">2.2.</span> <span class="nav-text">数学视角</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#合页函数"><span class="nav-number">2.3.</span> <span class="nav-text">合页函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Kernel"><span class="nav-number">3.</span> <span class="nav-text">Kernel</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#直观感受-2"><span class="nav-number">3.1.</span> <span class="nav-text">直观感受</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数学视角-2"><span class="nav-number">3.2.</span> <span class="nav-text">数学视角</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#序列最小最优化问题-SMO"><span class="nav-number">4.</span> <span class="nav-text">序列最小最优化问题(SMO)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#直观理解"><span class="nav-number">4.1.</span> <span class="nav-text">直观理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数学理解"><span class="nav-number">4.2.</span> <span class="nav-text">数学理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量选择"><span class="nav-number">4.3.</span> <span class="nav-text">变量选择</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码实现"><span class="nav-number">5.</span> <span class="nav-text">代码实现</span></a></li></ol></div>
             
 
           </div>

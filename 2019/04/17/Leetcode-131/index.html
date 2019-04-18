@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Machine Learning,">
+  <meta name="keywords" content="Leetcode,Medium,backtracking,">
 
 
 
@@ -79,18 +79,20 @@
 
 
 
-<meta name="description" content="Adaboost直观视角提升方法是一种基于弱分类器的方法。它将若干个弱分类器按照一定的权重进行线性组合，提高分类器的性能，建立最终的模型。 一般来说，我们会改变数据的概率分布，即给予不同的权重，然后对不同权重的数据进行多次学习获得若干个弱分类器。最后对这若干个弱分类器进行加权线性组合。 这就引出了两个问题：如何改变数据的分布？如何确定弱分类器线性组合的权重？ 直观上，我们会更加关注被误分类的数据点">
-<meta name="keywords" content="Machine Learning">
+<meta name="description" content="Question Solution考虑对字符串进行逆序。用s[x:x:-1]来切片并且逆序比较难以判断，阅读起来比较复杂，可以先切片后逆序，即s[x:x][::-1]来替代。 1234567891011121314151617class Solution:    def partition(self, s: str) -&amp;gt; List[List[str]]:        results =">
+<meta name="keywords" content="Leetcode,Medium,backtracking">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AdaBoost">
-<meta property="og:url" content="http://yoursite.com/2019/04/16/AdaBoost/index.html">
+<meta property="og:title" content="Leetcode 131">
+<meta property="og:url" content="http://yoursite.com/2019/04/17/Leetcode-131/index.html">
 <meta property="og:site_name" content="Do it">
-<meta property="og:description" content="Adaboost直观视角提升方法是一种基于弱分类器的方法。它将若干个弱分类器按照一定的权重进行线性组合，提高分类器的性能，建立最终的模型。 一般来说，我们会改变数据的概率分布，即给予不同的权重，然后对不同权重的数据进行多次学习获得若干个弱分类器。最后对这若干个弱分类器进行加权线性组合。 这就引出了两个问题：如何改变数据的分布？如何确定弱分类器线性组合的权重？ 直观上，我们会更加关注被误分类的数据点">
+<meta property="og:description" content="Question Solution考虑对字符串进行逆序。用s[x:x:-1]来切片并且逆序比较难以判断，阅读起来比较复杂，可以先切片后逆序，即s[x:x][::-1]来替代。 1234567891011121314151617class Solution:    def partition(self, s: str) -&amp;gt; List[List[str]]:        results =">
 <meta property="og:locale" content="zh_Hans">
-<meta property="og:updated_time" content="2019-04-17T00:45:27.530Z">
+<meta property="og:image" content="http://yoursite.com/2019/04/17/Leetcode-131/plot.png">
+<meta property="og:updated_time" content="2019-04-18T01:28:09.076Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AdaBoost">
-<meta name="twitter:description" content="Adaboost直观视角提升方法是一种基于弱分类器的方法。它将若干个弱分类器按照一定的权重进行线性组合，提高分类器的性能，建立最终的模型。 一般来说，我们会改变数据的概率分布，即给予不同的权重，然后对不同权重的数据进行多次学习获得若干个弱分类器。最后对这若干个弱分类器进行加权线性组合。 这就引出了两个问题：如何改变数据的分布？如何确定弱分类器线性组合的权重？ 直观上，我们会更加关注被误分类的数据点">
+<meta name="twitter:title" content="Leetcode 131">
+<meta name="twitter:description" content="Question Solution考虑对字符串进行逆序。用s[x:x:-1]来切片并且逆序比较难以判断，阅读起来比较复杂，可以先切片后逆序，即s[x:x][::-1]来替代。 1234567891011121314151617class Solution:    def partition(self, s: str) -&amp;gt; List[List[str]]:        results =">
+<meta name="twitter:image" content="http://yoursite.com/2019/04/17/Leetcode-131/plot.png">
 
 
 
@@ -120,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/04/16/AdaBoost/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/17/Leetcode-131/">
 
 
 
 
 
-  <title>AdaBoost | Do it</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Leetcode 131 | Do it</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -243,7 +245,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/16/AdaBoost/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/17/Leetcode-131/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="JW">
@@ -260,7 +262,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">AdaBoost</h1>
+          <h1 class="post-title" itemprop="name headline">Leetcode 131</h1>
         
 
         <div class="post-meta">
@@ -272,8 +274,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-16T16:34:06-05:00">
-                2019-04-16
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-17T20:23:23-05:00">
+                2019-04-17
               </time>
             
 
@@ -291,8 +293,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/04/16/AdaBoost/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/16/AdaBoost/" itemprop="commentCount"></span>
+                <a href="/2019/04/17/Leetcode-131/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/17/Leetcode-131/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -319,7 +321,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  623
+                  114
                 </span>
               
 
@@ -335,7 +337,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  2
+                  1
                 </span>
               
             </div>
@@ -356,14 +358,9 @@
       
 
       
-        <h1 id="Adaboost"><a href="#Adaboost" class="headerlink" title="Adaboost"></a>Adaboost</h1><h2 id="直观视角"><a href="#直观视角" class="headerlink" title="直观视角"></a>直观视角</h2><p>提升方法是一种基于弱分类器的方法。它将若干个弱分类器按照一定的权重进行线性组合，提高分类器的性能，建立最终的模型。</p>
-<p>一般来说，我们会改变数据的概率分布，即给予不同的权重，然后对不同权重的数据进行多次学习获得若干个弱分类器。最后对这若干个弱分类器进行加权线性组合。</p>
-<p>这就引出了两个问题：如何改变数据的分布？如何确定弱分类器线性组合的权重？</p>
-<p>直观上，我们会更加关注被误分类的数据点，因为其往往包含更多的信息。对于弱分类器，我们会更加偏向分类正确率高的分类器，给予其更高的权重。</p>
-<p>其实，这就是Adaboost的思想。</p>
-<h2 id="数学视角"><a href="#数学视角" class="headerlink" title="数学视角"></a>数学视角</h2><p>首先，我们假定数据<script type="math/tex">T=\{(x_1, y_1), ...,(x_N, y_N)\}​</script>。初始情况下，我们将数据分布设为均匀分布，即权重为</p>
-<p><script type="math/tex">D_1=(w_{11}, w_{12}, ..., w_{1N})=(\frac{1}{N},\frac{1}{N},..., \frac{1}{N})</script>。然后我们就可以构建第一个弱分类器<script type="math/tex">G_m(x):X\to\{-1, +1\}</script>。接下来，我们需要计算这个分类器的误分类率。因为我们对数据赋予了权重，误分类率也就是被误分类数据点的权重之和。<script type="math/tex">e_m=\sum\limits_{G_m(x_i)\neq y_i}w_{mi}</script>。然后计算分类器的权重，<script type="math/tex">\alpha_m=\frac{1}{2}ln(\frac{1-e_m}{e_m})</script>。从这公式中，我们可以看出，当<script type="math/tex">e_m\le 0.5</script>，<script type="math/tex">ln(\frac{1-e_m}{e_m})\ge 1</script>，即如果一个分类器的误分类率越小，赋予其的权重就越大，在最终分类的作用越大。当我们基于当前数据分布构建了一个弱分类器之后，我们需要重新确定数据的分布，对于被误分类的数据点给予更大的权重。<script type="math/tex">D_{m+1}=(w_{m+1, 1},..., w_{m+1, N})</script>，其中，<script type="math/tex">w_{m+1,i}=\frac{w_{m,i}}{Z_m}exp(-\alpha_my_iG_m(x_i))</script>, <script type="math/tex">Z_m=\sum\limits_{i=1}^Nw_{m,i}exp(-\alpha_my_iG_m(x_i))</script>。可以看出，<script type="math/tex">Z_m</script>只是为了使权重和为1。权重公式告诉我们，对于误分类点，即<script type="math/tex">y_i\neq G_m(x_i)</script>，新的权重会比原来的更大。在重新给予权重之后，就可以学习一个新的分类器了。</p>
-<p>最终，我们获得了组合的分类器，即<script type="math/tex">f(x)=\sum\limits_{m=1}^M\alpha_mG_m(x)</script>, <script type="math/tex">G(x)=sign(f(x))</script>。</p>
+        <h1 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h1><p><img src="/2019/04/17/Leetcode-131/plot.png" alt></p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>考虑对字符串进行逆序。用<script type="math/tex">s[x:x:-1]</script>来切片并且逆序比较难以判断，阅读起来比较复杂，可以先切片后逆序，即<script type="math/tex">s[x:x][::-1]</script>来替代。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">partition</span><span class="params">(self, s: str)</span> -&gt; List[List[str]]:</span></span><br><span class="line">        results = []</span><br><span class="line">        self.dfs(s, [], results)</span><br><span class="line">        <span class="keyword">return</span> results</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(self, s, temp, results)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> s:</span><br><span class="line">            results.append(temp)</span><br><span class="line">            <span class="keyword">return</span> </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, len(s)+<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> self.isPal(s[:i]):</span><br><span class="line">                self.dfs(s[i:], temp+[s[:i]], results)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isPal</span><span class="params">(self, s)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> s == s[::<span class="number">-1</span>]</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -381,7 +378,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Machine-Learning/" rel="tag"># Machine Learning</a>
+            <a href="/tags/Leetcode/" rel="tag"># Leetcode</a>
+          
+            <a href="/tags/Medium/" rel="tag"># Medium</a>
+          
+            <a href="/tags/backtracking/" rel="tag"># backtracking</a>
           
         </div>
       
@@ -394,8 +395,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/15/Leetcode-78-90/" rel="next" title="Leetcode 78">
-                <i class="fa fa-chevron-left"></i> Leetcode 78
+              <a href="/2019/04/17/Lagrange/" rel="next" title="Lagrange">
+                <i class="fa fa-chevron-left"></i> Lagrange
               </a>
             
           </div>
@@ -403,10 +404,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/16/Leetcode-90/" rel="prev" title="Leetcode 90">
-                Leetcode 90 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -551,7 +548,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Adaboost"><span class="nav-number">1.</span> <span class="nav-text">Adaboost</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#直观视角"><span class="nav-number">1.1.</span> <span class="nav-text">直观视角</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数学视角"><span class="nav-number">1.2.</span> <span class="nav-text">数学视角</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Question"><span class="nav-number">1.</span> <span class="nav-text">Question</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">1.1.</span> <span class="nav-text">Solution</span></a></li></ol></li></ol></div>
             
 
           </div>

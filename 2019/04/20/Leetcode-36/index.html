@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Leetcode,Medium,Backtracking,">
+  <meta name="keywords" content="Leetcode,Medium,Hash Table,">
 
 
 
@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="Question Solution使用DFS，修改46题的代码。更改dfs嵌套的退出语句。 12345678910111213class Solution:    def combine(self, n: int, k: int) -&amp;gt; List[List[int]]:        results = []        nums = list(range(1, n + 1))">
-<meta name="keywords" content="Leetcode,Medium,Backtracking">
+<meta name="description" content="Question Solution可以通过set来比较是否有重复元素，注意剔除”.”。 先创建一个检测unit的函数，然后判断行，列，3*3的时候调用unit函数。 123456789101112131415161718192021222324252627class Solution:    def isValidSudoku(self, board: List[List[str]]) -&amp;gt;">
+<meta name="keywords" content="Leetcode,Medium,Hash Table">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode 77">
-<meta property="og:url" content="http://yoursite.com/2019/04/15/Leetcode-77/index.html">
+<meta property="og:title" content="Leetcode 36">
+<meta property="og:url" content="http://yoursite.com/2019/04/20/Leetcode-36/index.html">
 <meta property="og:site_name" content="Do it">
-<meta property="og:description" content="Question Solution使用DFS，修改46题的代码。更改dfs嵌套的退出语句。 12345678910111213class Solution:    def combine(self, n: int, k: int) -&amp;gt; List[List[int]]:        results = []        nums = list(range(1, n + 1))">
+<meta property="og:description" content="Question Solution可以通过set来比较是否有重复元素，注意剔除”.”。 先创建一个检测unit的函数，然后判断行，列，3*3的时候调用unit函数。 123456789101112131415161718192021222324252627class Solution:    def isValidSudoku(self, board: List[List[str]]) -&amp;gt;">
 <meta property="og:locale" content="zh_Hans">
-<meta property="og:image" content="http://yoursite.com/2019/04/15/Leetcode-77/plot.png">
-<meta property="og:updated_time" content="2019-04-15T21:06:46.739Z">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/Leetcode-36/plot.png">
+<meta property="og:updated_time" content="2019-04-20T15:26:43.896Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leetcode 77">
-<meta name="twitter:description" content="Question Solution使用DFS，修改46题的代码。更改dfs嵌套的退出语句。 12345678910111213class Solution:    def combine(self, n: int, k: int) -&amp;gt; List[List[int]]:        results = []        nums = list(range(1, n + 1))">
-<meta name="twitter:image" content="http://yoursite.com/2019/04/15/Leetcode-77/plot.png">
+<meta name="twitter:title" content="Leetcode 36">
+<meta name="twitter:description" content="Question Solution可以通过set来比较是否有重复元素，注意剔除”.”。 先创建一个检测unit的函数，然后判断行，列，3*3的时候调用unit函数。 123456789101112131415161718192021222324252627class Solution:    def isValidSudoku(self, board: List[List[str]]) -&amp;gt;">
+<meta name="twitter:image" content="http://yoursite.com/2019/04/20/Leetcode-36/plot.png">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/04/15/Leetcode-77/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/20/Leetcode-36/">
 
 
 
 
 
-  <title>Leetcode 77 | Do it</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Leetcode 36 | Do it</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -245,7 +245,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/15/Leetcode-77/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/20/Leetcode-36/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="JW">
@@ -262,7 +262,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Leetcode 77</h1>
+          <h1 class="post-title" itemprop="name headline">Leetcode 36</h1>
         
 
         <div class="post-meta">
@@ -274,8 +274,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-15T15:57:16-05:00">
-                2019-04-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-20T10:24:17-05:00">
+                2019-04-20
               </time>
             
 
@@ -293,8 +293,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/04/15/Leetcode-77/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/15/Leetcode-77/" itemprop="commentCount"></span>
+                <a href="/2019/04/20/Leetcode-36/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/20/Leetcode-36/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -321,7 +321,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  79
+                  165
                 </span>
               
 
@@ -358,9 +358,10 @@
       
 
       
-        <h1 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h1><p><img src="/2019/04/15/Leetcode-77/plot.png" alt></p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>使用DFS，修改46题的代码。更改dfs嵌套的退出语句。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">combine</span><span class="params">(self, n: int, k: int)</span> -&gt; List[List[int]]:</span></span><br><span class="line">        results = []</span><br><span class="line">        nums = list(range(<span class="number">1</span>, n + <span class="number">1</span>))</span><br><span class="line">        self.dfs(k, nums, [], results)</span><br><span class="line">        <span class="keyword">return</span> results</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(self, k, nums, temp, results)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> len(temp) == k:</span><br><span class="line">            results.append(temp)</span><br><span class="line">        	<span class="keyword">return</span> </span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)):</span><br><span class="line">            self.dfs(k, nums[i+<span class="number">1</span>:], temp+[nums[i]], results)</span><br></pre></td></tr></table></figure>
+        <h1 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h1><p><img src="/2019/04/20/Leetcode-36/plot.png" alt></p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>可以通过set来比较是否有重复元素，注意剔除”.”。</p>
+<p>先创建一个检测unit的函数，然后判断行，列，3*3的时候调用unit函数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isValidSudoku</span><span class="params">(self, board: List[List[str]])</span> -&gt; bool:</span></span><br><span class="line">        <span class="keyword">return</span> (self.roww(board) <span class="keyword">and</span> self.coll(board) <span class="keyword">and</span> self.square(board))</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">unitt</span><span class="params">(self, unit)</span>:</span></span><br><span class="line">        unit = [elem <span class="keyword">for</span> elem <span class="keyword">in</span> unit <span class="keyword">if</span> elem !=<span class="string">"."</span>]</span><br><span class="line">        <span class="keyword">return</span> len(set(unit)) == len(unit)</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">roww</span><span class="params">(self, board)</span>:</span></span><br><span class="line">        <span class="keyword">for</span> row <span class="keyword">in</span> board:</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> self.unitt(row):</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">coll</span><span class="params">(self, board)</span>:</span></span><br><span class="line">        <span class="keyword">for</span> col <span class="keyword">in</span> zip(*board):</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> self.unitt(col):</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">square</span><span class="params">(self, board)</span>:</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> (<span class="number">0</span>, <span class="number">3</span>, <span class="number">6</span>):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> (<span class="number">0</span>, <span class="number">3</span>, <span class="number">6</span>):</span><br><span class="line">                square = [board[x][y] <span class="keyword">for</span> x <span class="keyword">in</span> range(i, i+<span class="number">3</span>) <span class="keyword">for</span> y <span class="keyword">in</span> range(j, j+<span class="number">3</span>)]</span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">not</span> self.unitt(square):</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -382,7 +383,7 @@
           
             <a href="/tags/Medium/" rel="tag"># Medium</a>
           
-            <a href="/tags/Backtracking/" rel="tag"># Backtracking</a>
+            <a href="/tags/Hash-Table/" rel="tag"># Hash Table</a>
           
         </div>
       
@@ -395,8 +396,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/14/Leetcode-60/" rel="next" title="Leetcode 60">
-                <i class="fa fa-chevron-left"></i> Leetcode 60
+              <a href="/2019/04/19/Leetcode-18/" rel="next" title="Leetcode 18">
+                <i class="fa fa-chevron-left"></i> Leetcode 18
               </a>
             
           </div>
@@ -405,8 +406,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/04/15/Leetcode-78-90/" rel="prev" title="Leetcode 78">
-                Leetcode 78 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/04/20/Leetcode-49/" rel="prev" title="Leetcode 49">
+                Leetcode 49 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

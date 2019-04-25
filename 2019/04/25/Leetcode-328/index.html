@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Leetcode,Array,">
+  <meta name="keywords" content="Leetcode,Linked List,">
 
 
 
@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="Question Solution1将数据分为0，正数，负数。然后考虑000，-0+，-++，—+几种情况。 1234567891011121314151617181920212223242526272829303132333435class Solution:    def threeSum(self, nums: List[int]) -&amp;gt; List[List[int]]:">
-<meta name="keywords" content="Leetcode,Array">
+<meta name="description" content="Question Solution1首先，排除空，只有一个结点和只有两个结点的情况，直接返回head。 然后创建两个指针，pre和cur。pre指向排序好的奇数部分的末位元素，cur指向未被排序的奇数的前一位。每次交换，都将cur.next放入pre.next的位置。然后串联起来其他部分数据。 需要注意，在每次循环开始前，都要保存cur.next和pre.next，防止丢失。 1234567891">
+<meta name="keywords" content="Leetcode,Linked List">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode 15. 3Sum">
-<meta property="og:url" content="http://yoursite.com/2019/04/10/Leetcode-15/index.html">
+<meta property="og:title" content="Leetcode 328">
+<meta property="og:url" content="http://yoursite.com/2019/04/25/Leetcode-328/index.html">
 <meta property="og:site_name" content="Do it">
-<meta property="og:description" content="Question Solution1将数据分为0，正数，负数。然后考虑000，-0+，-++，—+几种情况。 1234567891011121314151617181920212223242526272829303132333435class Solution:    def threeSum(self, nums: List[int]) -&amp;gt; List[List[int]]:">
+<meta property="og:description" content="Question Solution1首先，排除空，只有一个结点和只有两个结点的情况，直接返回head。 然后创建两个指针，pre和cur。pre指向排序好的奇数部分的末位元素，cur指向未被排序的奇数的前一位。每次交换，都将cur.next放入pre.next的位置。然后串联起来其他部分数据。 需要注意，在每次循环开始前，都要保存cur.next和pre.next，防止丢失。 1234567891">
 <meta property="og:locale" content="zh_Hans">
-<meta property="og:image" content="http://yoursite.com/2019/04/10/Leetcode-15/plot.png">
-<meta property="og:updated_time" content="2019-04-22T01:33:37.250Z">
+<meta property="og:image" content="http://yoursite.com/2019/04/25/Leetcode-328/plot.png">
+<meta property="og:updated_time" content="2019-04-25T20:14:34.662Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leetcode 15. 3Sum">
-<meta name="twitter:description" content="Question Solution1将数据分为0，正数，负数。然后考虑000，-0+，-++，—+几种情况。 1234567891011121314151617181920212223242526272829303132333435class Solution:    def threeSum(self, nums: List[int]) -&amp;gt; List[List[int]]:">
-<meta name="twitter:image" content="http://yoursite.com/2019/04/10/Leetcode-15/plot.png">
+<meta name="twitter:title" content="Leetcode 328">
+<meta name="twitter:description" content="Question Solution1首先，排除空，只有一个结点和只有两个结点的情况，直接返回head。 然后创建两个指针，pre和cur。pre指向排序好的奇数部分的末位元素，cur指向未被排序的奇数的前一位。每次交换，都将cur.next放入pre.next的位置。然后串联起来其他部分数据。 需要注意，在每次循环开始前，都要保存cur.next和pre.next，防止丢失。 1234567891">
+<meta name="twitter:image" content="http://yoursite.com/2019/04/25/Leetcode-328/plot.png">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/04/10/Leetcode-15/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/25/Leetcode-328/">
 
 
 
 
 
-  <title>Leetcode 15. 3Sum | Do it</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Leetcode 328 | Do it</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -245,7 +245,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/10/Leetcode-15/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/25/Leetcode-328/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="JW">
@@ -262,7 +262,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Leetcode 15. 3Sum</h1>
+          <h1 class="post-title" itemprop="name headline">Leetcode 328</h1>
         
 
         <div class="post-meta">
@@ -274,8 +274,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-10T21:02:18-05:00">
-                2019-04-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-25T14:55:20-05:00">
+                2019-04-25
               </time>
             
 
@@ -293,8 +293,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/04/10/Leetcode-15/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/10/Leetcode-15/" itemprop="commentCount"></span>
+                <a href="/2019/04/25/Leetcode-328/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/25/Leetcode-328/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -321,7 +321,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  191
+                  290
                 </span>
               
 
@@ -358,9 +358,13 @@
       
 
       
-        <h1 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h1><p><img src="/2019/04/10/Leetcode-15/plot.png" alt></p>
-<h2 id="Solution1"><a href="#Solution1" class="headerlink" title="Solution1"></a>Solution1</h2><p>将数据分为0，正数，负数。然后考虑000，-0+，-++，—+几种情况。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">threeSum</span><span class="params">(self, nums: List[int])</span> -&gt; List[List[int]]:</span></span><br><span class="line">        ans = []</span><br><span class="line">        nums = sorted(nums)</span><br><span class="line">        nums_p = [elem <span class="keyword">for</span> elem <span class="keyword">in</span> nums <span class="keyword">if</span> elem &gt; <span class="number">0</span>]</span><br><span class="line">        nums_n = [elem <span class="keyword">for</span> elem <span class="keyword">in</span> nums <span class="keyword">if</span> elem &lt; <span class="number">0</span>]</span><br><span class="line">        nums_zero = [elem <span class="keyword">for</span> elem <span class="keyword">in</span> nums <span class="keyword">if</span> elem == <span class="number">0</span>]</span><br><span class="line">        </span><br><span class="line">        positive = set(nums_p)</span><br><span class="line">        negative = set(nums_n)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">#3 Zero</span></span><br><span class="line">        <span class="keyword">if</span> len(nums_zero) &gt; <span class="number">2</span>:</span><br><span class="line">            ans.append([<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>])</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 1 Zero 1 postive 1 negative</span></span><br><span class="line">        <span class="keyword">if</span> len(nums_zero) &gt; <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">for</span> elem <span class="keyword">in</span> nums_p:</span><br><span class="line">                <span class="keyword">if</span> -elem <span class="keyword">in</span> negative:</span><br><span class="line">                    ans.append([-elem, <span class="number">0</span>, elem])</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 2 positive 1 negative</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums_p)<span class="number">-1</span>):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(i+<span class="number">1</span>, len(nums_p)):</span><br><span class="line">                diff = -nums_p[i] - nums_p[j]</span><br><span class="line">                <span class="keyword">if</span> diff <span class="keyword">in</span> negative:</span><br><span class="line">                    ans.append([diff, nums_p[i], nums_p[j]])</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 2 negative 1 positive</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums_n)<span class="number">-1</span>):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(i+<span class="number">1</span>, len(nums_n)):</span><br><span class="line">                diff = -nums_n[i] - nums_n[j]</span><br><span class="line">                <span class="keyword">if</span> diff <span class="keyword">in</span> positive:</span><br><span class="line">                    ans.append([nums_n[i], nums_n[j], diff])</span><br><span class="line">        <span class="keyword">return</span> [list(t) <span class="keyword">for</span> t <span class="keyword">in</span> set(tuple(_) <span class="keyword">for</span> _ <span class="keyword">in</span> ans)]</span><br></pre></td></tr></table></figure>
+        <h1 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h1><p><img src="/2019/04/25/Leetcode-328/plot.png" alt></p>
+<h2 id="Solution1"><a href="#Solution1" class="headerlink" title="Solution1"></a>Solution1</h2><p>首先，排除空，只有一个结点和只有两个结点的情况，直接返回head。</p>
+<p>然后创建两个指针，pre和cur。pre指向排序好的奇数部分的末位元素，cur指向未被排序的奇数的前一位。每次交换，都将cur.next放入pre.next的位置。然后串联起来其他部分数据。</p>
+<p>需要注意，在每次循环开始前，都要保存cur.next和pre.next，防止丢失。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"># class ListNode(object):</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.next = None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">oddEvenList</span><span class="params">(self, head)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type head: ListNode</span></span><br><span class="line"><span class="string">        :rtype: ListNode</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> (head <span class="keyword">and</span> head.next <span class="keyword">and</span> head.next.next):</span><br><span class="line">            <span class="keyword">return</span> head</span><br><span class="line">        pre = head</span><br><span class="line">        cur = pre.next</span><br><span class="line">        <span class="keyword">while</span> cur <span class="keyword">and</span> cur.next:</span><br><span class="line">            temp1 = cur.next</span><br><span class="line">            temp2 = pre.next</span><br><span class="line">            pre.next = temp1</span><br><span class="line">            cur.next = temp1.next</span><br><span class="line">            temp1.next = temp2</span><br><span class="line">            cur = cur.next</span><br><span class="line">            pre = pre.next</span><br><span class="line">        <span class="keyword">return</span> head</span><br></pre></td></tr></table></figure>
+<h2 id="Solution2"><a href="#Solution2" class="headerlink" title="Solution2"></a>Solution2</h2><p>考虑创建一个偶数的链表，然后最后将两个链表连接起来。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"># class ListNode(object):</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.next = None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">oddEvenList</span><span class="params">(self, head)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type head: ListNode</span></span><br><span class="line"><span class="string">        :rtype: ListNode</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> (head <span class="keyword">and</span> head.next):</span><br><span class="line">            <span class="keyword">return</span> head</span><br><span class="line">        cur = head</span><br><span class="line">        evenhead = head.next</span><br><span class="line">        even = evenhead</span><br><span class="line">        <span class="keyword">while</span> even:</span><br><span class="line">            cur.next = even.next</span><br><span class="line">            <span class="keyword">if</span> cur.next:</span><br><span class="line">                cur = cur.next</span><br><span class="line">                even.next = cur.next</span><br><span class="line">                even = even.next</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        cur.next = evenhead</span><br><span class="line">        <span class="keyword">return</span> head</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -380,7 +384,7 @@
           
             <a href="/tags/Leetcode/" rel="tag"># Leetcode</a>
           
-            <a href="/tags/Array/" rel="tag"># Array</a>
+            <a href="/tags/Linked-List/" rel="tag"># Linked List</a>
           
         </div>
       
@@ -393,8 +397,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/10/Leetcode-769/" rel="next" title="Leetcode 769. Max Chunks To Make Sorted">
-                <i class="fa fa-chevron-left"></i> Leetcode 769. Max Chunks To Make Sorted
+              <a href="/2019/04/25/Leetcode-147/" rel="next" title="Leetcode 147">
+                <i class="fa fa-chevron-left"></i> Leetcode 147
               </a>
             
           </div>
@@ -402,10 +406,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/13/Leetcode-46-47/" rel="prev" title="Leetcode 46">
-                Leetcode 46 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -550,7 +550,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Question"><span class="nav-number">1.</span> <span class="nav-text">Question</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution1"><span class="nav-number">1.1.</span> <span class="nav-text">Solution1</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Question"><span class="nav-number">1.</span> <span class="nav-text">Question</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution1"><span class="nav-number">1.1.</span> <span class="nav-text">Solution1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution2"><span class="nav-number">1.2.</span> <span class="nav-text">Solution2</span></a></li></ol></li></ol></div>
             
 
           </div>

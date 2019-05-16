@@ -87,10 +87,22 @@
 <meta property="og:site_name" content="Do it">
 <meta property="og:description" content="1. 数据库的选择假设数据名字为crashcourse，customers为其中的一张表。其中，最后两句话是相等的。 12345USE crashcourseSHOW databaseSHOW TABLESSHOW COLUMNS FROM customersDESCRIBE customers 2. SELECT语句 选择所有的行、列可以用“*”。 DISTINCT作用于所有的列。 LIMIT">
 <meta property="og:locale" content="zh_Hans">
-<meta property="og:updated_time" content="2019-05-10T03:38:13.561Z">
+<meta property="og:image" content="http://yoursite.com/2019/05/09/MySQL-知识点/plot1.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/09/MySQL-知识点/plot2.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/09/MySQL-知识点/plot3.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/09/MySQL-知识点/plot4.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/09/MySQL-知识点/plot5.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/09/MySQL-知识点/plot6.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/09/MySQL-知识点/plot7.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/09/MySQL-知识点/plot8.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/09/MySQL-知识点/plot9.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/09/MySQL-知识点/plot10.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/09/MySQL-知识点/plot11.png">
+<meta property="og:updated_time" content="2019-05-16T12:23:34.814Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL 知识点">
 <meta name="twitter:description" content="1. 数据库的选择假设数据名字为crashcourse，customers为其中的一张表。其中，最后两句话是相等的。 12345USE crashcourseSHOW databaseSHOW TABLESSHOW COLUMNS FROM customersDESCRIBE customers 2. SELECT语句 选择所有的行、列可以用“*”。 DISTINCT作用于所有的列。 LIMIT">
+<meta name="twitter:image" content="http://yoursite.com/2019/05/09/MySQL-知识点/plot1.png">
 
 
 
@@ -319,7 +331,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  246
+                  716
                 </span>
               
 
@@ -335,7 +347,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  1
+                  3
                 </span>
               
             </div>
@@ -372,7 +384,74 @@
 <li>“_”匹配单个任意字符。</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT DISTINCT C1, C2, C3 FROM customers WHERE C1 LIKE &apos;%jet%&apos;</span><br></pre></td></tr></table></figure>
-<h3 id="4-正则表达式"><a href="#4-正则表达式" class="headerlink" title="4.正则表达式"></a>4.正则表达式</h3>
+<h3 id="4-正则表达式"><a href="#4-正则表达式" class="headerlink" title="4.正则表达式"></a>4.正则表达式</h3><ul>
+<li>OR搜索：REGEXP ‘1000|2000|3000’</li>
+<li>匹配多个字符：REGEXP ‘[123] Ton’</li>
+<li>匹配范围：[1-9], [1-6], [a-z]</li>
+<li>转义：’\\-‘, ‘\\.‘</li>
+<li><img src="/2019/05/09/MySQL-知识点/plot1.png" alt></li>
+<li><img src="/2019/05/09/MySQL-知识点/plot2.png" alt></li>
+<li><img src="/2019/05/09/MySQL-知识点/plot3.png" alt></li>
+<li>上表中，匹配元字符前面的的字符。n, m代表数字。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT C1 FROM customers WHERE C1 REGEXP &apos;\\([0-9] sticks?\\)&apos; ORDER BY C1</span><br></pre></td></tr></table></figure>
+<ul>
+<li>定位符：<img src="/2019/05/09/MySQL-知识点/plot4.png" alt></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT C1 FROM customers WHERE C1 REGEXP &apos;^[0-9\\.]&apos; ORDER BY C1</span><br></pre></td></tr></table></figure>
+<h3 id="5-创建字段"><a href="#5-创建字段" class="headerlink" title="5. 创建字段"></a>5. 创建字段</h3><ul>
+<li>Concat用于拼接字段</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT Concat(RTrim(C1), &apos;(&apos;, RTrim(C2), &apos;)&apos;) AS CCC FROM vendors ORDER BY C1</span><br></pre></td></tr></table></figure>
+<ul>
+<li>可执行算数，加减乘除</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT C1, C2, C3, C2*C3 AS CCC FROM orderitem WHERE C1 = 2002</span><br></pre></td></tr></table></figure>
+<h3 id="6-函数"><a href="#6-函数" class="headerlink" title="6. 函数"></a>6. 函数</h3><ul>
+<li>常用函数：</li>
+</ul>
+<p><img src="/2019/05/09/MySQL-知识点/plot5.png" alt></p>
+<p><img src="/2019/05/09/MySQL-知识点/plot6.png" alt></p>
+<ul>
+<li>其中，Soundex是一个将任何文本串转化为描述其语音表示的字母数字模式的函数</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT C1, C2 FROM vendors WHERE Soundex(C2) = Soundex(&apos;Lee&apos;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>日期函数</li>
+</ul>
+<p><img src="/2019/05/09/MySQL-知识点/plot7.png" alt></p>
+<ul>
+<li>关于日期的使用，需要注意格式，推荐使用’yyyy-mm-dd’。</li>
+<li>同时，在筛选时间方面时，需要注意表中时间格式，例如是否带了小时，分钟之类的。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT C1, C2 FROM vendors WHERE Date(C2) = &apos;2005-01-09&apos;</span><br><span class="line">SELECT C1, C2 FROM vendors WHERE Year(C2) = 2005 And Month(C2) = 1</span><br></pre></td></tr></table></figure>
+<ul>
+<li>数值处理的函数</li>
+</ul>
+<p><img src="/2019/05/09/MySQL-知识点/plot8.png" alt></p>
+<h3 id="7-汇总数据"><a href="#7-汇总数据" class="headerlink" title="7. 汇总数据"></a>7. 汇总数据</h3><ul>
+<li>聚集函数：运行在行组上，计算和返回单个值。</li>
+<li><p><img src="/2019/05/09/MySQL-知识点/plot9.png" alt></p>
+</li>
+<li><p>在函数里面可以添加DISTINCT</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT AVG(DISTINCT C1) AS CCCC1, MIN(C1) AS DDDD1 FROM vendors</span><br></pre></td></tr></table></figure>
+<h3 id="8-分组数据"><a href="#8-分组数据" class="headerlink" title="8. 分组数据"></a>8. 分组数据</h3><ul>
+<li>使用GROUP BY，GROUP By指示MYSQL进行分组，然后对于每个组进行聚集。</li>
+<li>GROUP BY子句可以包含任意数据的列，因此可以对分组进行嵌套。数据将在最后规定的分组上进行汇总。</li>
+<li>不能使用别名</li>
+<li>NULL会作为一个分组返回</li>
+<li>GROUP BY在WHERE之后，ORDER BY之前。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT C1, COUNT(*) AS CC2 FROM products GROUP BY C1</span><br></pre></td></tr></table></figure>
+<ul>
+<li>过滤分组使用HAVING，而不是WHERE。WHERE过滤指定的是行而不是分组。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT C1, COUNT(*) AS CCC2 FROM vendors WHERE C3 &gt;= 10 GROUP BY C1 HAVING COUNT(*) &gt;= 2</span><br></pre></td></tr></table></figure>
+<h3 id="9-SELECT字句的顺序"><a href="#9-SELECT字句的顺序" class="headerlink" title="9. SELECT字句的顺序"></a>9. SELECT字句的顺序</h3><p><img src="/2019/05/09/MySQL-知识点/plot10.png" alt></p>
+<p><img src="/2019/05/09/MySQL-知识点/plot11.png" alt></p>
+
       
     </div>
     
@@ -555,7 +634,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-数据库的选择"><span class="nav-number">1.</span> <span class="nav-text">1. 数据库的选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-SELECT语句"><span class="nav-number">2.</span> <span class="nav-text">2. SELECT语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-通配符"><span class="nav-number">3.</span> <span class="nav-text">3.通配符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-正则表达式"><span class="nav-number">4.</span> <span class="nav-text">4.正则表达式</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-数据库的选择"><span class="nav-number">1.</span> <span class="nav-text">1. 数据库的选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-SELECT语句"><span class="nav-number">2.</span> <span class="nav-text">2. SELECT语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-通配符"><span class="nav-number">3.</span> <span class="nav-text">3.通配符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-正则表达式"><span class="nav-number">4.</span> <span class="nav-text">4.正则表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-创建字段"><span class="nav-number">5.</span> <span class="nav-text">5. 创建字段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-函数"><span class="nav-number">6.</span> <span class="nav-text">6. 函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-汇总数据"><span class="nav-number">7.</span> <span class="nav-text">7. 汇总数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-分组数据"><span class="nav-number">8.</span> <span class="nav-text">8. 分组数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-SELECT字句的顺序"><span class="nav-number">9.</span> <span class="nav-text">9. SELECT字句的顺序</span></a></li></ol></div>
             
 
           </div>

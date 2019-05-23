@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh_Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Python,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Basic Operation 安装某一个包, terminal里面打 pip install name 自定义函数  1234567891011121314151617181920212223242526272829303132333435def soton_fun1(x1,x2):    return x1 *x2#可变参数def soton_fun1(*args):    sum = 0">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python Basic Operation">
+<meta property="og:url" content="http://yoursite.com/2019/05/22/Python-Basic-Operation/index.html">
+<meta property="og:site_name" content="Do it">
+<meta property="og:description" content="Basic Operation 安装某一个包, terminal里面打 pip install name 自定义函数  1234567891011121314151617181920212223242526272829303132333435def soton_fun1(x1,x2):    return x1 *x2#可变参数def soton_fun1(*args):    sum = 0">
+<meta property="og:locale" content="zh_Hans">
+<meta property="og:updated_time" content="2019-05-22T03:15:33.830Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python Basic Operation">
+<meta name="twitter:description" content="Basic Operation 安装某一个包, terminal里面打 pip install name 自定义函数  1234567891011121314151617181920212223242526272829303132333435def soton_fun1(x1,x2):    return x1 *x2#可变参数def soton_fun1(*args):    sum = 0">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/05/22/Python-Basic-Operation/">
+
+
+
+
+
+  <title>Python Basic Operation | Do it</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh_Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Do it</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/22/Python-Basic-Operation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JW">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/HH.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Do it">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Python Basic Operation</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-22T11:15:08+08:00">
+                2019-05-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/05/22/Python-Basic-Operation/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/22/Python-Basic-Operation/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  1.9k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  10
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Basic-Operation"><a href="#Basic-Operation" class="headerlink" title="Basic Operation"></a>Basic Operation</h2><ul>
+<li>安装某一个包, terminal里面打 pip install name</li>
+<li>自定义函数</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">soton_fun1</span><span class="params">(x1,x2)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x1 *x2</span><br><span class="line"></span><br><span class="line"><span class="comment">#可变参数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">soton_fun1</span><span class="params">(*args)</span>:</span></span><br><span class="line">    sum = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> args:</span><br><span class="line">        <span class="keyword">return</span> sum = sum + i</span><br><span class="line"></span><br><span class="line"><span class="comment">#关键字参数，允许输入一个或者多个含参数名的参数，会强制转化为字典格式。</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">student</span><span class="params">(name,**kargs)</span>:</span></span><br><span class="line">    print(name,,kargs)</span><br><span class="line">student(<span class="string">"xiaoming"</span>) <span class="comment">#只输入了必选参数</span></span><br><span class="line">student(<span class="string">"xiaoming"</span>,sex= <span class="string">'male'</span>) <span class="comment">#输入了可变参数sex</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#匿名函数</span></span><br><span class="line"><span class="comment">#map函数接受两个参数，一个是函数，一个是iterable的序列函数，map会将传入的函数作用在每一个元素上，并把结果作为iterator返回。</span></span><br><span class="line"></span><br><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>]</span><br><span class="line">m1 = map(<span class="keyword">lambda</span> s : s**<span class="number">2</span>,a)</span><br><span class="line"></span><br><span class="line"><span class="comment"># m1返回的是一个迭代器，需要用for循环或者list函数来取值，且只能一次</span></span><br><span class="line">list(m1)</span><br><span class="line"><span class="keyword">for</span> value <span class="keyword">in</span> m1:</span><br><span class="line">    print(m1)</span><br><span class="line"></span><br><span class="line"><span class="comment">#reduce接受一个函数和一个序列，reduce把函数结果与下一个元素做累计计算</span></span><br><span class="line">x = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]</span><br><span class="line">r1 = reduce(<span class="keyword">lambda</span> a,b: a+b,x)</span><br><span class="line"><span class="comment">#将x里面的元素详解得出结果</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#filter接受一个函数与一个序列，filter把函数作用在每一个元素上，返回True或者False， 保留True的值</span></span><br><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">7</span>]</span><br><span class="line">f1 = filter(<span class="keyword">lambda</span> s : s&gt; <span class="number">3</span>,a]</span><br><span class="line"><span class="comment">#保留大于3的值</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>内置函数</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#知道具体某一个column的位置</span></span><br><span class="line">bdir = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> enumerate(df.columns):</span><br><span class="line">    bdir[i[<span class="number">1</span>]] = i[<span class="number">0</span>]</span><br><span class="line">bdir[<span class="string">'column_name'</span>] <span class="comment">#将会返回具体的位置的数值</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#zip将两边拉起来</span></span><br><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">b = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>]</span><br><span class="line">list(zip(a,b))</span><br></pre></td></tr></table></figure>
+<h2 id="Tuple"><a href="#Tuple" class="headerlink" title="Tuple"></a>Tuple</h2><h3 id="Create-Tuple"><a href="#Create-Tuple" class="headerlink" title="Create Tuple"></a>Create Tuple</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">tup = <span class="number">5</span>, <span class="number">4</span>, <span class="number">6</span></span><br><span class="line">tup = (<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>), (<span class="number">7</span>, <span class="number">8</span>) <span class="comment">#nested tuple</span></span><br><span class="line">tuple([<span class="number">4</span>, <span class="number">6</span>, <span class="number">7</span>]) <span class="comment">#convert sequence to tuple</span></span><br><span class="line">tuple(<span class="string">'string'</span>) <span class="comment"># convert iterator to tuple</span></span><br><span class="line"></span><br><span class="line">tup = ([<span class="string">'foo'</span>, [<span class="number">1</span>, <span class="number">2</span>], <span class="literal">True</span>])</span><br><span class="line">tup[<span class="number">1</span>].append(<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Tuple is unchangable, and the objects stored in tuple can be dfferent.</li>
+<li>If the object stored in tuple is mutable, then we can modify this object.</li>
+</ul>
+<h3 id="unpacking-tuples"><a href="#unpacking-tuples" class="headerlink" title="unpacking tuples"></a>unpacking tuples</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a, b = <span class="number">1</span>, <span class="number">2</span></span><br><span class="line">b, a = a, b</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Using the feature of unpacking tuples，we can swap variable names easily </li>
+</ul>
+<h3 id="advanced-tuple-unpacking"><a href="#advanced-tuple-unpacking" class="headerlink" title="advanced tuple unpacking"></a>advanced tuple unpacking</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">values = <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span></span><br><span class="line">a, b, *rest = values</span><br></pre></td></tr></table></figure>
+<ul>
+<li>the returns of a, b is (1, 2)—tuple, and the return of rest is [3, 4, 5]—list</li>
+</ul>
+<h3 id="python-format-function"><a href="#python-format-function" class="headerlink" title="python format function"></a>python format function</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">seq = [(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>), (<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>), (<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>)]</span><br><span class="line"><span class="keyword">for</span> a, b, c <span class="keyword">in</span> seq:</span><br><span class="line">    print(<span class="string">"a=&#123;0&#125;, b=&#123;1&#125;, c=&#123;2&#125;"</span>.format(a, b, c))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> a, b, c <span class="keyword">in</span> seq:</span><br><span class="line">    print(<span class="string">"&#123;0&#125;, &#123;1&#125;, &#123;2&#125;"</span>.format(a, c, b))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>See Book P53</li>
+<li>seq is a nested tuple</li>
+<li>The numbers in curly braces are the orders/positions of the parameters in the format function.(这里大括号里面的指定的是后面format函数里面参数的位置)</li>
+</ul>
+<h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><h3 id="Basic-ideal"><a href="#Basic-ideal" class="headerlink" title="Basic ideal"></a>Basic ideal</h3><ul>
+<li>Lists are modifiable and we can use [ ] or list function to define.</li>
+</ul>
+<h3 id="Adding-and-removing"><a href="#Adding-and-removing" class="headerlink" title="Adding and removing"></a>Adding and removing</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">a_list.append(xx) </span><br><span class="line"><span class="comment"># add xx elements at the end of the list</span></span><br><span class="line">a_list.insert(<span class="number">1</span>, xx)</span><br><span class="line"><span class="comment"># insert xx element at index 1 (very expensive)</span></span><br><span class="line">a_list.pop(<span class="number">2</span>)</span><br><span class="line"><span class="comment"># delete the element at index 2</span></span><br><span class="line">a_list.remove(<span class="string">"loo"</span>)</span><br><span class="line"><span class="comment"># remove the first "loo" element</span></span><br><span class="line"></span><br><span class="line"><span class="string">'xx'</span> <span class="keyword">in</span> a_list</span><br><span class="line"><span class="comment"># check if xx is in the a_list</span></span><br><span class="line"><span class="string">'xx'</span> <span class="keyword">not</span> <span class="keyword">in</span> a_list</span><br></pre></td></tr></table></figure>
+<h3 id="Concatenating-and-combining-lists"><a href="#Concatenating-and-combining-lists" class="headerlink" title="Concatenating and combining lists"></a>Concatenating and combining lists</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>] + [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>] </span><br><span class="line"><span class="comment"># add up</span></span><br><span class="line">a_list.extend([<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>])</span><br><span class="line"><span class="comment"># add list [4, 5, 6] and a_list</span></span><br></pre></td></tr></table></figure>
+<h3 id="Sorting"><a href="#Sorting" class="headerlink" title="Sorting"></a>Sorting</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">a_list.sort()</span><br><span class="line"></span><br><span class="line">a_list.sort(key=len)</span><br><span class="line"><span class="comment"># sort, basing on the length of elements</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> bisect</span><br><span class="line">bisect.bisect(a_list, <span class="number">2</span>)</span><br><span class="line"><span class="comment"># find the location where element 2 should be inseted to keep it sorted</span></span><br><span class="line"></span><br><span class="line">bisect.insort(a_list, <span class="number">2</span>)</span><br><span class="line"><span class="comment"># insert element 2 to the a_list without affect the sort</span></span><br></pre></td></tr></table></figure>
+<h3 id="Slicing"><a href="#Slicing" class="headerlink" title="Slicing"></a>Slicing</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">a_list[<span class="number">1</span>:<span class="number">5</span>]</span><br><span class="line"><span class="comment"># slice the first to forth elements of a_list. (Include the start one, but not the last one.)</span></span><br><span class="line">a_list[:<span class="number">5</span>]</span><br><span class="line">a_list[<span class="number">-6</span>:<span class="number">-2</span>]</span><br><span class="line"></span><br><span class="line">a_list[<span class="number">2</span>:<span class="number">3</span>] = [<span class="number">6</span>, <span class="number">3</span>]</span><br><span class="line"><span class="comment"># change the second element of a_list by [6, 3], length + 1</span></span><br><span class="line"></span><br><span class="line">a_list[::<span class="number">3</span>]</span><br><span class="line"><span class="comment"># take step (Get the first element and then by step)</span></span><br></pre></td></tr></table></figure>
+<h2 id="Built-in-sequence-functions"><a href="#Built-in-sequence-functions" class="headerlink" title="Built-in sequence functions"></a>Built-in sequence functions</h2><h3 id="Enumerate"><a href="#Enumerate" class="headerlink" title="Enumerate"></a>Enumerate</h3><ul>
+<li>enumerate function is used to compute a <strong>dict</strong> mapping the values of a sequence to their locations in the sequence.</li>
+<li>link:<a href="http://www.runoob.com/python3/python3-func-enumerate.html" target="_blank" rel="noopener">http://www.runoob.com/python3/python3-func-enumerate.html</a></li>
+<li>usually used in for loop</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">list(enumerate(a_list))</span><br><span class="line"><span class="comment"># it gives the sequence of the dict and elements</span></span><br><span class="line"><span class="keyword">for</span> i, element <span class="keyword">in</span> enumerate(a_list):</span><br><span class="line">    print(i, a_list[i])</span><br></pre></td></tr></table></figure>
+<h3 id="Sorted-function"><a href="#Sorted-function" class="headerlink" title="Sorted function"></a>Sorted function</h3><ul>
+<li>it gives a <strong>new</strong> sorted list form the given sequence</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c_list = sorted([<span class="number">7</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">2</span>])</span><br><span class="line">d_list = sorted(<span class="string">"adsfasdf afdsfds"</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="Zip-function"><a href="#Zip-function" class="headerlink" title="Zip function"></a>Zip function</h3><ul>
+<li>It <strong>pairs up</strong> the elements of a number of lists, tuples or other sequences to create <strong>a list of tuples</strong></li>
+<li>It the length of the lists are not the same, the number of elements it produces is determined by <strong>the shortest sequence</strong></li>
+<li>Usually used in for loop, possibly combined with enumerate<br>_ Given a “zipped” sequence, zip function can be used to unzip this sequence. And it’s very <strong>clever!</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">zipped = zip(a_list, b_list, c_list)</span><br><span class="line"><span class="comment"># the length of these lists can be different</span></span><br><span class="line">list(zipped)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i, (a, b) <span class="keyword">in</span> enumerate(zip(a_list, b_list)):</span><br><span class="line">    print(<span class="string">'&#123;0&#125;: &#123;1&#125;, &#123;2&#125;'</span>.format(i, a, b))</span><br><span class="line"></span><br><span class="line">c_list = [(<span class="string">'hah'</span>, <span class="string">'xixi'</span>), (<span class="string">'lala'</span>, <span class="string">'meme'</span>)]</span><br><span class="line">first_one, second_one = zip(*pitchers)</span><br><span class="line"><span class="comment"># the gives of first_one is ('hah', 'lala'). second_one is similar</span></span><br></pre></td></tr></table></figure>
+<h3 id="Reversed"><a href="#Reversed" class="headerlink" title="Reversed"></a>Reversed</h3><ul>
+<li>reverse the sequence</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">list(reversed(range(<span class="number">10</span>)))</span><br></pre></td></tr></table></figure>
+<h2 id="Dict"><a href="#Dict" class="headerlink" title="Dict"></a>Dict</h2><ul>
+<li>It is also called <strong>hash map or associative array</strong></li>
+<li>Dict is created through { } or by using dict() function, and it’s mutable<br>-it is the collection of <strong>key-value</strong> pairs.</li>
+<li>Key must be unique, but the value don’ t need.</li>
+<li>Value can be any type.</li>
+<li>When we are creating a dict, if we have two same key, the second value will be collected.</li>
+</ul>
+<h3 id="Create-and-add"><a href="#Create-and-add" class="headerlink" title="Create and add"></a>Create and add</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">d1 = &#123;<span class="string">'a'</span>: <span class="string">'some value'</span>, <span class="string">'b'</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]&#125;</span><br><span class="line"></span><br><span class="line">d1[<span class="number">7</span>] = <span class="string">'hahah'</span></span><br><span class="line"><span class="comment"># add a pair, which is 7-hahah.</span></span><br></pre></td></tr></table></figure>
+<h3 id="Check-and-delete"><a href="#Check-and-delete" class="headerlink" title="Check and delete"></a>Check and delete</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'b'</span> <span class="keyword">in</span> d1</span><br><span class="line"></span><br><span class="line"><span class="keyword">del</span> d1[<span class="number">5</span>]</span><br><span class="line">d1.pop(<span class="string">'a'</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="Merge-dicts"><a href="#Merge-dicts" class="headerlink" title="Merge dicts"></a>Merge dicts</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">d1.update(&#123;<span class="string">'c'</span>: <span class="string">'xixi'</span>, <span class="number">5</span>: <span class="string">'lalal'</span>&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="Create-dicts-from-sequences"><a href="#Create-dicts-from-sequences" class="headerlink" title="Create dicts from sequences"></a>Create dicts from sequences</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mapping = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> key, value <span class="keyword">in</span> zip(key_list, value_list):</span><br><span class="line">    mapping[key] = value</span><br><span class="line"><span class="comment"># loop one </span></span><br><span class="line"></span><br><span class="line">mapping = dict(zip(range(<span class="number">5</span>), reversed(range(<span class="number">5</span>))))</span><br></pre></td></tr></table></figure>
+<h3 id="Default-value"><a href="#Default-value" class="headerlink" title="Default value"></a>Default value</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> key <span class="keyword">in</span> some_dict:</span><br><span class="line">    value = some_day[key]</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    value = default_value</span><br><span class="line"></span><br><span class="line">value = some_dict.get(key, default_value)</span><br><span class="line"></span><br><span class="line"><span class="comment"># two methods but do the same thing</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">words = [<span class="string">'apple'</span>, <span class="string">'bat'</span>, <span class="string">'bar'</span>, <span class="string">'atom'</span>, <span class="string">'book'</span>]</span><br><span class="line">by_letter = &#123; &#125;</span><br><span class="line"><span class="keyword">for</span> word <span class="keyword">in</span> words:</span><br><span class="line">    letter = word[<span class="number">0</span>]      <span class="comment"># here word is a 'STR', and it takes the first letter of the word</span></span><br><span class="line">    <span class="keyword">if</span> letter <span class="keyword">not</span> <span class="keyword">in</span> by_letter:</span><br><span class="line">        by_letter[letter] = [word]</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        by_letter [letter].append(word)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> word <span class="keyword">in</span> words:</span><br><span class="line">    letter = word[<span class="number">0</span>]</span><br><span class="line">    by_letter.setdefault(letter, []).append(word)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> defaultdict</span><br><span class="line">by_letter = defaultdict(list)</span><br><span class="line"><span class="keyword">for</span> word <span class="keyword">in</span> words:</span><br><span class="line">    by_letter[word[<span class="number">0</span>]].append(word)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>the second and third are precisely and better.</li>
+<li>link:<a href="http://www.runoob.com/python3/python3-att-dictionary-setdefault.html" target="_blank" rel="noopener">http://www.runoob.com/python3/python3-att-dictionary-setdefault.html</a></li>
+</ul>
+<h3 id="Valid-key-types"><a href="#Valid-key-types" class="headerlink" title="Valid key types"></a>Valid key types</h3><ul>
+<li>Key should bu immutable, like int, float, string, tuples and so on. </li>
+<li>List is unacceptable, cause it is mutable</li>
+<li>Term—hashability</li>
+<li>Use hash function to check</li>
+<li>List can only be used if you convert it to tuple first.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hash(<span class="string">'string'</span>)</span><br><span class="line"></span><br><span class="line">hash([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">hash((<span class="number">1</span>, <span class="number">2</span>, [<span class="number">3</span>, <span class="number">4</span>]))</span><br><span class="line"><span class="comment"># these two are not hashable, cause it is list or contains list.</span></span><br></pre></td></tr></table></figure>
+<h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h2><ul>
+<li>Set is an unordered collection of unique elements. </li>
+<li>Use set function or { } to create. But only use set function if you want to create a empty set.</li>
+<li>link:<a href="http://www.runoob.com/python3/python3-set.html" target="_blank" rel="noopener">http://www.runoob.com/python3/python3-set.html</a></li>
+</ul>
+<h2 id="List-Set-Dict-and-Nested-list-Comprehensions"><a href="#List-Set-Dict-and-Nested-list-Comprehensions" class="headerlink" title="List, Set, Dict and Nested list Comprehensions"></a>List, Set, Dict and Nested list Comprehensions</h2><ul>
+<li>The condition can be omitted</li>
+<li>Basic form for List: [expr for val in collection if condition]</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">strings = [<span class="string">'a'</span>, <span class="string">'as'</span>, <span class="string">'bat'</span>]</span><br><span class="line">[x.upper() <span class="keyword">for</span> x <span class="keyword">in</span> strings <span class="keyword">if</span> len(x) &gt;<span class="number">2</span>]</span><br><span class="line"><span class="comment"># Get the strings with length &gt; 2, and convert them to upper case.</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>Basic form for Set: {exp for value in collection if condition}</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;len(x) <span class="keyword">for</span> x <span class="keyword">in</span> strings&#125;</span><br><span class="line"><span class="comment"># Get the length of each elements in strings</span></span><br><span class="line"></span><br><span class="line">set(map(len, strings))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Basic form for Dict: {key-expr: value_expr for value in collection if condition}</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;val: index <span class="keyword">for</span> index, val <span class="keyword">in</span> enumerate(strings)&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Nested-list-comprehensions"><a href="#Nested-list-comprehensions" class="headerlink" title="Nested list comprehensions"></a>Nested list comprehensions</h2><ul>
+<li>Arrange according to the order of nesting</li>
+<li>The order of the for expressions would be the same if you wrote a nested for loop.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># P1, method 1</span></span><br><span class="line">result = [name <span class="keyword">for</span> names <span class="keyword">in</span> all_data <span class="keyword">for</span> name <span class="keyword">in</span> names <span class="keyword">if</span> name.count(<span class="string">'e'</span>) &gt;= <span class="number">2</span>]</span><br><span class="line">names_of _interest = [] </span><br><span class="line"><span class="keyword">for</span> names <span class="keyword">in</span> all_data:</span><br><span class="line">    enough_es = [name <span class="keyword">for</span> name <span class="keyword">in</span> names <span class="keyword">if</span> name.count(<span class="string">'e'</span>) &gt;= <span class="number">2</span></span><br><span class="line">    names_of_interest.extend(enough_es)</span><br><span class="line"></span><br><span class="line"><span class="comment"># P1 method 2</span></span><br><span class="line">[name <span class="keyword">for</span> names <span class="keyword">in</span> all_data <span class="keyword">for</span> name <span class="keyword">in</span> names <span class="keyword">if</span> name.count(<span class="string">'e'</span>) &gt;= <span class="number">2</span>]</span><br><span class="line"><span class="comment"># 这里的names是all_data里面的两个list中的一个，然后name是names这个list里面的某个元素</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># P2 method 1</span></span><br><span class="line">flattened = [] </span><br><span class="line"><span class="keyword">for</span> tup <span class="keyword">in</span> some_tuples:</span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> tup:</span><br><span class="line">        flattened.append(x)</span><br><span class="line"></span><br><span class="line"><span class="comment"># P2 method 2</span></span><br><span class="line">flattened = [x  <span class="keyword">for</span> tup <span class="keyword">in</span> some_tuples <span class="keyword">for</span> x <span class="keyword">in</span> tup]</span><br></pre></td></tr></table></figure>
+<h2 id="Fucntions"><a href="#Fucntions" class="headerlink" title="Fucntions"></a>Fucntions</h2><ul>
+<li>It is worth writing a reusable function if repeat the same of similar code more than once.</li>
+<li>It is declared with the <strong>def</strong> keyword and returned form with the <strong>return</strong> keyword.</li>
+<li>Fucntions can have multiple <strong>return</strong> statement.</li>
+<li>If there is no <strong>return</strong>in the whole function, then it will return <strong>none</strong>.</li>
+<li>Each function can have multiple <strong>positional</strong> arguments and <strong>keyword</strong> arguments.</li>
+<li><strong>Keyword</strong> arguments are used to specify default values or optional arguments.</li>
+<li>The keyword arguments <strong>must</strong> follow the positional arguments.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">my_dunction</span><span class="params">(x, y, z=<span class="number">1.5</span>)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> z &gt; <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> z * (x + y)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> z / (x + y)</span><br></pre></td></tr></table></figure>
+<h2 id="Return-multiple-values"><a href="#Return-multiple-values" class="headerlink" title="Return multiple values"></a>Return multiple values</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">()</span>:</span></span><br><span class="line">    a = <span class="number">5</span></span><br><span class="line">    b = <span class="number">6</span></span><br><span class="line">    c= <span class="number">7</span></span><br><span class="line">    <span class="keyword">return</span> a, b, c</span><br><span class="line"></span><br><span class="line">a, b, c = f()</span><br><span class="line"><span class="comment"># Here, a, b, c are int</span></span><br><span class="line"></span><br><span class="line">return_value = f()</span><br><span class="line"><span class="comment"># Here, return_value is a tuple</span></span><br></pre></td></tr></table></figure>
+<h2 id="Functions-are-objects"><a href="#Functions-are-objects" class="headerlink" title="Functions are objects"></a>Functions are objects</h2><ul>
+<li>functions can be used as objects</li>
+<li>Examples are uniforming the strings.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Method 1</span></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">clean_strings</span><span class="params">(strings)</span>:</span></span><br><span class="line">    results = [] </span><br><span class="line">    <span class="keyword">for</span> value <span class="keyword">in</span> strings:</span><br><span class="line">        value = value.strip()</span><br><span class="line">        value = re.sub(<span class="string">'[!#?]'</span>, <span class="string">''</span>, value)</span><br><span class="line">        value = value.title()</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"><span class="comment"># Method 2</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">remove_punctuation</span><span class="params">(value)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> re.sub(<span class="string">'[!#?]'</span>, <span class="string">''</span>, value)</span><br><span class="line"></span><br><span class="line">clean_ops = [str.strip, remove_punction, str.title]</span><br><span class="line"><span class="comment"># This is the list of operations</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">clean_strings</span><span class="params">(strings, ops)</span>:</span></span><br><span class="line">    result = [] </span><br><span class="line">    <span class="keyword">for</span> value <span class="keyword">in</span> strings:</span><br><span class="line">        <span class="keyword">for</span> function <span class="keyword">in</span> ops:</span><br><span class="line">            value = function(value)</span><br><span class="line">        result.append(value)</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"><span class="comment"># Method 3</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> map(remove_punctuation, strings):</span><br><span class="line">    print(x)</span><br></pre></td></tr></table></figure>
+<h2 id="Anonymous-fucntions-Lambda"><a href="#Anonymous-fucntions-Lambda" class="headerlink" title="Anonymous fucntions (Lambda)"></a>Anonymous fucntions (Lambda)</h2><ul>
+<li>It is a way to write functios consisting of a single statement.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Method 1</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">short_function</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x * <span class="number">2</span></span><br><span class="line"><span class="comment">#Method 2</span></span><br><span class="line">equiv_anon = <span class="keyword">lambda</span> x: x * <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Another Example</span></span><br><span class="line">strings = [<span class="string">'foo'</span>, <span class="string">'card'</span>, <span class="string">'bar'</span>, <span class="string">'aaaa'</span>, <span class="string">'abab'</span>]</span><br><span class="line">strings.sort(key=<span class="keyword">lambda</span> x: len(set(list(x))))</span><br><span class="line"><span class="comment"># 不明白为什么要先list，后set。运行没有list也行</span></span><br></pre></td></tr></table></figure>
+<h2 id="Curring-Partial-Argument-Application"><a href="#Curring-Partial-Argument-Application" class="headerlink" title="Curring: Partial Argument Application"></a>Curring: Partial Argument Application</h2><ul>
+<li>Deriving new functions from existing ones by partial argument application.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_numbers</span><span class="params">(x, y)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x+ y</span><br><span class="line"></span><br><span class="line">add_five = <span class="keyword">lambda</span> y: add_numbers(<span class="number">5</span>, y)</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> partial</span><br><span class="line">add_five = partial(add_number, x=<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/09/MySQL-知识点/" rel="next" title="MySQL 知识点">
+                <i class="fa fa-chevron-left"></i> MySQL 知识点
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/22/Python-Numpy/" rel="prev" title="Python Numpy">
+                Python Numpy <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/HH.JPG" alt="JW">
+            
+              <p class="site-author-name" itemprop="name">JW</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Pinecone628" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:aurorawu1996@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic-Operation"><span class="nav-number">1.</span> <span class="nav-text">Basic Operation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tuple"><span class="nav-number">2.</span> <span class="nav-text">Tuple</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-Tuple"><span class="nav-number">2.1.</span> <span class="nav-text">Create Tuple</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#unpacking-tuples"><span class="nav-number">2.2.</span> <span class="nav-text">unpacking tuples</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#advanced-tuple-unpacking"><span class="nav-number">2.3.</span> <span class="nav-text">advanced tuple unpacking</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#python-format-function"><span class="nav-number">2.4.</span> <span class="nav-text">python format function</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#List"><span class="nav-number">3.</span> <span class="nav-text">List</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Basic-ideal"><span class="nav-number">3.1.</span> <span class="nav-text">Basic ideal</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Adding-and-removing"><span class="nav-number">3.2.</span> <span class="nav-text">Adding and removing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Concatenating-and-combining-lists"><span class="nav-number">3.3.</span> <span class="nav-text">Concatenating and combining lists</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sorting"><span class="nav-number">3.4.</span> <span class="nav-text">Sorting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Slicing"><span class="nav-number">3.5.</span> <span class="nav-text">Slicing</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Built-in-sequence-functions"><span class="nav-number">4.</span> <span class="nav-text">Built-in sequence functions</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Enumerate"><span class="nav-number">4.1.</span> <span class="nav-text">Enumerate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sorted-function"><span class="nav-number">4.2.</span> <span class="nav-text">Sorted function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Zip-function"><span class="nav-number">4.3.</span> <span class="nav-text">Zip function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reversed"><span class="nav-number">4.4.</span> <span class="nav-text">Reversed</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dict"><span class="nav-number">5.</span> <span class="nav-text">Dict</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-and-add"><span class="nav-number">5.1.</span> <span class="nav-text">Create and add</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Check-and-delete"><span class="nav-number">5.2.</span> <span class="nav-text">Check and delete</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Merge-dicts"><span class="nav-number">5.3.</span> <span class="nav-text">Merge dicts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-dicts-from-sequences"><span class="nav-number">5.4.</span> <span class="nav-text">Create dicts from sequences</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Default-value"><span class="nav-number">5.5.</span> <span class="nav-text">Default value</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Valid-key-types"><span class="nav-number">5.6.</span> <span class="nav-text">Valid key types</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Set"><span class="nav-number">6.</span> <span class="nav-text">Set</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#List-Set-Dict-and-Nested-list-Comprehensions"><span class="nav-number">7.</span> <span class="nav-text">List, Set, Dict and Nested list Comprehensions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nested-list-comprehensions"><span class="nav-number">8.</span> <span class="nav-text">Nested list comprehensions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Fucntions"><span class="nav-number">9.</span> <span class="nav-text">Fucntions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Return-multiple-values"><span class="nav-number">10.</span> <span class="nav-text">Return multiple values</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Functions-are-objects"><span class="nav-number">11.</span> <span class="nav-text">Functions are objects</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Anonymous-fucntions-Lambda"><span class="nav-number">12.</span> <span class="nav-text">Anonymous fucntions (Lambda)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Curring-Partial-Argument-Application"><span class="nav-number">13.</span> <span class="nav-text">Curring: Partial Argument Application</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JW</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'JFAeJTj7muKC5AS4smDHg7H9-gzGzoHsz',
+        appKey: 'pcUNKsQiiAbdiznrdkNmxETY',
+        placeholder: '来呀，快活呀！',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>

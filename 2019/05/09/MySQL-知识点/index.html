@@ -98,7 +98,9 @@
 <meta property="og:image" content="http://yoursite.com/2019/05/09/MySQL-知识点/plot9.png">
 <meta property="og:image" content="http://yoursite.com/2019/05/09/MySQL-知识点/plot10.png">
 <meta property="og:image" content="http://yoursite.com/2019/05/09/MySQL-知识点/plot11.png">
-<meta property="og:updated_time" content="2019-05-16T12:23:34.814Z">
+<meta property="og:image" content="http://yoursite.com/2019/05/09/MySQL-知识点/plot12.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/09/MySQL-知识点/plot13.png">
+<meta property="og:updated_time" content="2019-05-23T02:13:48.274Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL 知识点">
 <meta name="twitter:description" content="1. 数据库的选择假设数据名字为crashcourse，customers为其中的一张表。其中，最后两句话是相等的。 12345USE crashcourseSHOW databaseSHOW TABLESSHOW COLUMNS FROM customersDESCRIBE customers 2. SELECT语句 选择所有的行、列可以用“*”。 DISTINCT作用于所有的列。 LIMIT">
@@ -331,7 +333,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  716
+                  2.6k
                 </span>
               
 
@@ -347,7 +349,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  3
+                  11
                 </span>
               
             </div>
@@ -451,6 +453,197 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT C1, COUNT(*) AS CCC2 FROM vendors WHERE C3 &gt;= 10 GROUP BY C1 HAVING COUNT(*) &gt;= 2</span><br></pre></td></tr></table></figure>
 <h3 id="9-SELECT字句的顺序"><a href="#9-SELECT字句的顺序" class="headerlink" title="9. SELECT字句的顺序"></a>9. SELECT字句的顺序</h3><p><img src="/2019/05/09/MySQL-知识点/plot10.png" alt></p>
 <p><img src="/2019/05/09/MySQL-知识点/plot11.png" alt></p>
+<h3 id="10-字句查询"><a href="#10-字句查询" class="headerlink" title="10. 字句查询"></a>10. 字句查询</h3><ul>
+<li>语句嵌套</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT C1, C2 FROM customers WHERE C2 IN (SELECT C2 FROM orderitems WHERE C3 = &apos;TTT&apos;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>作为计算字段</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT cust_name, cust_state, (SELECT COUNT(*) FROM orders WHERE orders.cust_id = customers.cust_id) AS orders FROM customers</span><br></pre></td></tr></table></figure>
+<h3 id="11-联结"><a href="#11-联结" class="headerlink" title="11. 联结"></a>11. 联结</h3><ul>
+<li>可联结多个表，用AND</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT C1, C2, C3 FROM customers, products WHERE customers.C4 = products.C4</span><br></pre></td></tr></table></figure>
+<ul>
+<li>可以给表取别名</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT C1, C2, C3 FROM customers AS a, products AS b WHERE a.C4 = b.C4 AND C1 = &apos;ttt&apos;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>自联结</li>
+<li>外部联结，指定包含所有行，LEFT或者RIGHT</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT customers.cust_id, orders.order_num FROM customers LEFT OUTER JOIN orders ON customers.cust_id = orders.cust_id</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用聚合函数</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT customers.cust_name, customers.cust_id, COUNT(orders.order_num) AS num_ord FROM customers LEFT OUTER JOIN orders ON customers.cust_id = orders.cust_id GROUP BY customers.cust_id</span><br></pre></td></tr></table></figure>
+<h3 id="12-组合查询"><a href="#12-组合查询" class="headerlink" title="12. 组合查询"></a>12. 组合查询</h3><ul>
+<li>多条语句组合起来，使用UNION</li>
+<li>UNION中每个查询必须包含相同的列、表达式或聚合函数</li>
+<li>UNIOB自动去重，如果不想去重，使用UNION ALL</li>
+<li>组合查询排序需要将ORDER BY放在最后一个SELECT语句之后，对所有行进行排序</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT C1, C2 FROM products	WHERE C1 &gt; 5</span><br><span class="line">UNION</span><br><span class="line">SELECT C1, C2 FROM products WHERE C2 = &apos;WWW&apos;</span><br></pre></td></tr></table></figure>
+<h3 id="13-全文本搜索"><a href="#13-全文本搜索" class="headerlink" title="13.全文本搜索"></a>13.全文本搜索</h3><ul>
+<li>需要在创建表的时候添加FULLTEXT(C1)</li>
+<li>使用函数Mathc()和Against()</li>
+<li>全文本搜索的一个重要部分就是对结果的排序，优先返回较高等级的行</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT C1 FROM productnotes WHERE Match(C1) Agaisnt(&apos;rabbit&apos;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>排序等级由MySQL根据行中词的数目、唯一词的数目、整个索引中词的 总数以及包含该词的行的数目计算出来。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT C1 WHERE Match(C1) Agaisnt(&apos;rabbit&apos;) AS rank FROM productnotes</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查询扩展，用于找到与搜索有关的行，即使不包含搜索的词</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT C1 FROM productnotes WHERE Match(C1) Agaisnt(&apos;rabbit&apos; WITH QUERY EXPANSION)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>布尔文本搜索，用于全文本搜索，且可以：要匹配的词，要排斥的词，排列提示，表达式分组等</li>
+<li>下面的例子搜索含有rabbit且排除包含 rope* （任何以 rope 开始的词， 包括 ropes）的行。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT C1 FROM productnotes WHERE Match(C1) Agaisnt(&apos;rabbit -rope*&apos; In BOOLEAN MODE)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><img src="/2019/05/09/MySQL-知识点/plot12.png" alt></li>
+<li><img src="/2019/05/09/MySQL-知识点/plot13.png" alt></li>
+<li>MySQL规定了一条50%规则，如果一个词出现在50%以上 的行中，则将它作为一个非用词忽略。50%规则不用于IN BOOLEAN MODE。</li>
+<li>如果表中的行数少于3行，则全文本搜索不返回结果（因为每个词 或者不出现，或者至少出现在50%的行中）。</li>
+<li>忽略词中的单引号。例如，don’t索引为dont。</li>
+</ul>
+<h3 id="14-数据插入"><a href="#14-数据插入" class="headerlink" title="14.数据插入"></a>14.数据插入</h3><ul>
+<li>插入的时候，每个列必须给值，如果没有值，则写NULL</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO customers </span><br><span class="line">VALUE(NULL,</span><br><span class="line">     &apos;CCC&apos;,</span><br><span class="line">     &apos;DDD&apos;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>上面这种表示不安全，因为依赖于表中列的顺序。下面这种更好但也更加繁琐。且使用这种方法可以省略列，但是省略列必须满足：该列定义为允许NULL值（无值或空值）；在表定义中给出默认值。这表示如果不给出值，将使用默认值。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO customers(C1, C2, C3)</span><br><span class="line">VALUE(NULL,</span><br><span class="line">     &apos;CCC&apos;,</span><br><span class="line">     &apos;DDD&apos;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>插入多行</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO customers(C1, C2, C3)</span><br><span class="line">VALUE(NULL,</span><br><span class="line">     &apos;CCC&apos;,</span><br><span class="line">     &apos;DDD&apos;),</span><br><span class="line">VALUE(NULL,</span><br><span class="line">     &apos;CCC11&apos;,</span><br><span class="line">     &apos;DDD22&apos;),</span><br></pre></td></tr></table></figure>
+<ul>
+<li>INSERT SELECT</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO customers(C1, C2, C3)</span><br><span class="line">SELECT C1, C2, C3 FROM custnew</span><br><span class="line">### 合并表了</span><br></pre></td></tr></table></figure>
+<ul>
+<li>MySQL甚至不关心SELECT返回的列名。它使用的是列的位置，因此SELECT中的第一列（不管其列名）将用来填充表列中指定的第一个列，第二列将用来填充表列中指定的第二个列，如此等等。</li>
+<li>可以添加WHERE来过滤数据</li>
+</ul>
+<h3 id="15-更新数据"><a href="#15-更新数据" class="headerlink" title="15. 更新数据"></a>15. 更新数据</h3><ul>
+<li>UPDATE：更新特定行或者更新所有行</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UPDATE customers SET C1 = &apos;ssss&apos;, C2 = &apos;xxxx&apos; WHERE C2 = 100055</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果将值设为NULL，就可以用来删除某个列的值。</li>
+</ul>
+<h3 id="16-删除数据"><a href="#16-删除数据" class="headerlink" title="16.删除数据"></a>16.删除数据</h3><ul>
+<li>DELETE：从表中删除特定的行或者所有的行。</li>
+<li>不能忘记WHERE语句。</li>
+<li>DELETE用于删除行，如果要删除列需要用UPDATE</li>
+<li>删除所有的行使用 TRUNCATE TABLE</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DELETE FROM customers WHERE C1 = &apos;sss&apos;</span><br></pre></td></tr></table></figure>
+<h3 id="17-创建表"><a href="#17-创建表" class="headerlink" title="17.创建表"></a>17.创建表</h3><ul>
+<li><p>列名，数据类型，默认值</p>
+</li>
+<li><p>在创建新表时，指定的表名必须不存在。</p>
+</li>
+<li><p>如果你仅想在一个表不存在时创建它，应该在表名后给出IF NOT EXISTS。</p>
+</li>
+<li><p>表中的每个行必须具有唯一的主键值。且主键可以由多个列组成，但是要确保他们的组合是唯一的。</p>
+</li>
+<li><p>每个表只允许一个AUTO_INCREMENT列，而且它必须被索引（如通过使它成为主键）。</p>
+</li>
+<li><p>MySQL不允许使用函数作为默认值，它只支持常量。</p>
+</li>
+<li><p>引擎：</p>
+<ul>
+<li><p>InnoDB是一个可靠的事务处理引擎，它不支持全文 本搜索；</p>
+</li>
+<li><p>MEMORY在功能等同于MyISAM，但由于数据存中，速度很快（特别适合于临时表）；</p>
+</li>
+<li>MyISAM是一个性能极高的引擎，它支持全文本搜索，但不支持事务处理。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE customers</span><br><span class="line">(</span><br><span class="line">C1    int       NOT NULL AUTO_INCREMENT,</span><br><span class="line">C2    char(50)  NOT NULL,</span><br><span class="line">C3    char(5)   NULL,</span><br><span class="line">C4    char(5)   NOT NULL DEFAULT 1,</span><br><span class="line">PRIMARY KEY (C1)</span><br><span class="line">)ENGINE=InooDB</span><br></pre></td></tr></table></figure>
+<ul>
+<li>更新表，使用ALTER TABLE，ADD C1 CHAR(20)添加列，DROP CLOUMN C1删除列</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE vendors ADD C1 CHAR(20)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>定义外键</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE orderitems ADD CONSTRAINT fk_orderitems_products FOREIGN KEY (prod_id) REFERENCES customers (prod_id)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>重命名</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RENAME TABLE T1 TO T11, T2 TO T22</span><br></pre></td></tr></table></figure>
+<h3 id="18-视图"><a href="#18-视图" class="headerlink" title="18.视图"></a>18.视图</h3><ul>
+<li>视图不包含表中任何列或数据，它包含的是一个SQL查询。</li>
+<li><p>视图规则</p>
+<ul>
+<li>与表一样，视图必须唯一命名（不能给视图取与别的视图或表相同的名字）。</li>
+<li>对于可以创建的视图数目没有限制。</li>
+<li>为了创建视图，必须具有足够的访问权限。这些限制通常由数据库管理人员授予。</li>
+<li>视图可以嵌套，即可以利用从其他视图中检索数据的查询来构造一个视图。</li>
+<li>ORDER BY可以用在视图中，但如果从该视图检索数据SELECT中也含有ORDER BY，那么该视图中的ORDER BY将被覆盖。</li>
+<li>视图不能索引，也不能有关联的触发器或默认值。</li>
+<li>视图可以和表一起使用。例如，编写一条联结表和视图的SELECT语句。</li>
+</ul>
+</li>
+<li><p>语句：</p>
+<ul>
+<li>CREATE VIEW，创建语句。</li>
+<li>SHOW CREATE VIEW viewname 来查看创建的视图语句。</li>
+<li>DROP VIEW viewname 来删除视图。</li>
+<li>先DROP后CREATE 或者 CREATE OR REPLACE VIEW 来更新视图</li>
+</ul>
+</li>
+<li>可以用视图来过滤数据</li>
+<li>可以用视图简化多次重复筛选</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CREATE VIEW prodcutcustomers AS </span><br><span class="line">SELECT cust_name, cust_contact, prod_id </span><br><span class="line">FROM customers, orders, orderitems </span><br><span class="line">WHERE customers.cust_id = orders.cust_id AND orderitems.order_num = orders.order_num</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT cust_name, cust_contact</span><br><span class="line">FROM productcustomers</span><br><span class="line">WHERE prod_id = &apos;TNT2&apos;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>视图可以更新(INSERT, UPDATE, DELETE)，但是如果包含以下操作，就不可以更新:<ul>
+<li>GROUP BY, HAVING</li>
+<li>联结</li>
+<li>子查询</li>
+<li>并</li>
+<li>聚集函数，Min(), Count(), Sum() 等</li>
+<li>DISTINCT</li>
+<li>导出计算列</li>
+</ul>
+</li>
+</ul>
+<h3 id="19-存储过程"><a href="#19-存储过程" class="headerlink" title="19.存储过程"></a>19.存储过程</h3><ul>
+<li>创建</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CREATE PROCEDURE productpricing()</span><br><span class="line">BEGIN</span><br><span class="line">	SELECT Avg(prod_price) AS priceaverage</span><br><span class="line">	FROM products;</span><br><span class="line">END;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>调用</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CALL productpricing()</span><br></pre></td></tr></table></figure>
+<ul>
+<li>删除</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP PROCEDURE prodcutpricing</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用变量</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">CREATE PROCEDURE productpricing(</span><br><span class="line">	OUT pl DECIMAL(8, 2),</span><br><span class="line">    OUT ph DECIMAL(8, 2),</span><br><span class="line">    OUT pa DECIMAL(8, 2)</span><br><span class="line">)</span><br><span class="line">BEGIN</span><br><span class="line">	SELECT Min(prod_price) INTO pl</span><br><span class="line">	From products;</span><br><span class="line">	SELECT Max(prod_price) INTO ph</span><br><span class="line">	From products;</span><br><span class="line">	SELECT Avg(prod_price) INTO pa</span><br><span class="line">	From products;</span><br><span class="line">END</span><br><span class="line"></span><br><span class="line">CALL productpricing(@pricelow, @pricehigh, @priceaverage)</span><br><span class="line">#不返回任何数据，这条CALL语句给出3个参数。它们是存储过 程将保存结果的3个变量的名字。</span><br><span class="line"></span><br><span class="line">SELECT @pricelow, @pricehigh, @priceaverage</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">CREATE PROCEDURE ordertotal(</span><br><span class="line">	IN onnumber INT,</span><br><span class="line">    OUT ototal DECIMAL(8, 2)</span><br><span class="line">)</span><br><span class="line">BEGIN</span><br><span class="line">	SELECT Sum(item_price*quantity)</span><br><span class="line">	FROM orderitems</span><br><span class="line">	WHERE order_num = onnumber</span><br><span class="line">	INTO ototal;</span><br><span class="line">END</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">CALL ordertotal(20005, @total)</span><br><span class="line">#需要传入数据</span><br><span class="line">SELECT @total</span><br></pre></td></tr></table></figure>
+<ul>
+<li>只能存储过程</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">-- Name: ordertotal</span><br><span class="line">-- Parameters: onumber = order number</span><br><span class="line">-- 			   taxable = 0 if not taxable, 1 if taxable</span><br><span class="line">-- 			   ototal  = order total variable</span><br><span class="line"></span><br><span class="line">CREATE PROCEDURE ordertotal(</span><br><span class="line">	IN onumber INT,</span><br><span class="line">	In taxable BOOLEAN,</span><br><span class="line">    OUT ototal DECIMAL(8, 2)</span><br><span class="line">) COMMENT &apos;Obtain order toal, optionally adding tax&apos;</span><br><span class="line"></span><br><span class="line">BEGIN</span><br><span class="line">	-- Declare variable for total</span><br><span class="line">	DECLARE total DECIMAL(8, 2);</span><br><span class="line">	-- Declare tax percentage</span><br><span class="line">	DECLARE taxrate INT DEFAULT 6;</span><br><span class="line">	</span><br><span class="line">	-- Get the order total</span><br><span class="line">	SELECT Sum(item_price*quantity)</span><br><span class="line">	From orderitems</span><br><span class="line">	WHERE order_num = onumber</span><br><span class="line">	INTO total;</span><br><span class="line">	</span><br><span class="line">	-- Is this taxable?</span><br><span class="line">	IF taxable THEN</span><br><span class="line">		SELECT total+(total/100*taxrate) INTO total;</span><br><span class="line">	END IF;</span><br><span class="line">	</span><br><span class="line">	`-- Save variable</span><br><span class="line">	SELECT total INTO ototal;</span><br><span class="line">END;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">CALL ordertotal(20005, 0, @total);</span><br><span class="line">SELECT $total;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>显示存储过程</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SHOW CREATE PROCEDURE ordertotal</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -490,6 +683,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/22/Python-Basic-Operation/" rel="prev" title="Python Basic Operation">
+                Python Basic Operation <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -572,7 +769,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">57</span>
+                  <span class="site-state-item-count">60</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -585,7 +782,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -634,7 +831,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-数据库的选择"><span class="nav-number">1.</span> <span class="nav-text">1. 数据库的选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-SELECT语句"><span class="nav-number">2.</span> <span class="nav-text">2. SELECT语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-通配符"><span class="nav-number">3.</span> <span class="nav-text">3.通配符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-正则表达式"><span class="nav-number">4.</span> <span class="nav-text">4.正则表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-创建字段"><span class="nav-number">5.</span> <span class="nav-text">5. 创建字段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-函数"><span class="nav-number">6.</span> <span class="nav-text">6. 函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-汇总数据"><span class="nav-number">7.</span> <span class="nav-text">7. 汇总数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-分组数据"><span class="nav-number">8.</span> <span class="nav-text">8. 分组数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-SELECT字句的顺序"><span class="nav-number">9.</span> <span class="nav-text">9. SELECT字句的顺序</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-数据库的选择"><span class="nav-number">1.</span> <span class="nav-text">1. 数据库的选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-SELECT语句"><span class="nav-number">2.</span> <span class="nav-text">2. SELECT语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-通配符"><span class="nav-number">3.</span> <span class="nav-text">3.通配符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-正则表达式"><span class="nav-number">4.</span> <span class="nav-text">4.正则表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-创建字段"><span class="nav-number">5.</span> <span class="nav-text">5. 创建字段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-函数"><span class="nav-number">6.</span> <span class="nav-text">6. 函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-汇总数据"><span class="nav-number">7.</span> <span class="nav-text">7. 汇总数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-分组数据"><span class="nav-number">8.</span> <span class="nav-text">8. 分组数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-SELECT字句的顺序"><span class="nav-number">9.</span> <span class="nav-text">9. SELECT字句的顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-字句查询"><span class="nav-number">10.</span> <span class="nav-text">10. 字句查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-联结"><span class="nav-number">11.</span> <span class="nav-text">11. 联结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-组合查询"><span class="nav-number">12.</span> <span class="nav-text">12. 组合查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-全文本搜索"><span class="nav-number">13.</span> <span class="nav-text">13.全文本搜索</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-数据插入"><span class="nav-number">14.</span> <span class="nav-text">14.数据插入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-更新数据"><span class="nav-number">15.</span> <span class="nav-text">15. 更新数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-删除数据"><span class="nav-number">16.</span> <span class="nav-text">16.删除数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17-创建表"><span class="nav-number">17.</span> <span class="nav-text">17.创建表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#18-视图"><span class="nav-number">18.</span> <span class="nav-text">18.视图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#19-存储过程"><span class="nav-number">19.</span> <span class="nav-text">19.存储过程</span></a></li></ol></div>
             
 
           </div>
